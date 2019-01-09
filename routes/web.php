@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 # UnionCloud Helper Routes
 
 Route::get('/unioncloud/get-all-groups', 'UnionCloudController@getAllGroups');
 
 Route::post('/unioncloud/search-students', 'UnionCloudController@searchStudents');
+
+Auth::routes();
+
+Route::get('/home', function() {return redirect('/'); })->name('home');
+Route::get('/dashboard', function() { return redirect('/'); })->name('dashboard');
+Route::get('/', function() { return view('home'); });
