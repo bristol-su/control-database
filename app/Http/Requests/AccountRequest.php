@@ -26,7 +26,10 @@ class AccountRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'description' => 'required|max:65535|min:3',
+            'is_department_code' => 'required|boolean',
+            'code' => 'required|size:3',
+            'group_id' => 'required|integer|exists:groups,id'
         ];
     }
 

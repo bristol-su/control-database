@@ -18,7 +18,7 @@ class CreateGroupTagsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('reference');
-            $table->unsignedInteger('group_tag_category');
+            $table->unsignedInteger('group_tag_category')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

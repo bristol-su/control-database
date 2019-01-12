@@ -26,7 +26,10 @@ class StudentTagRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|min:1|max:255',
+            'description' => 'required|min:3|max:65535',
+            'reference' => 'required|min:1|max:255',
+            'student_tag_category' => 'required|exists:student_tag_categories,id'
         ];
     }
 

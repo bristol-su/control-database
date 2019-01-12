@@ -26,9 +26,8 @@ class GroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:255',
-            'unioncloud_id' => 'required', //TODO Must exist
-            'name_changed_at' => 'nullable|date',
+            'name' => 'required|max:255|min:3|',
+            'unioncloud_id' => 'required'
         ];
     }
 

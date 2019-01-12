@@ -18,7 +18,7 @@ class CreateStudentTagsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('reference');
-            $table->unsignedInteger('student_tag_category');
+            $table->unsignedInteger('student_tag_category')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -36,7 +36,7 @@ class Account extends Model
 
     public function getGroupName()
     {
-        return $this->group->name;
+        return ($this->group !== null?$this->group->name:'-');
     }
     /*
     |--------------------------------------------------------------------------

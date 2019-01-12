@@ -36,13 +36,14 @@ class GroupTag extends Model
 
     public function getCategoryName()
     {
-        return $this->category->name;
+        return ($this->category !== null?$this->category->name:'-');
     }
 
     public function getFullReference()
     {
-        return $this->category->reference.'.'.$this->reference;
+        return ($this->category !== null?$this->category->reference:'').'.'.$this->reference;
     }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

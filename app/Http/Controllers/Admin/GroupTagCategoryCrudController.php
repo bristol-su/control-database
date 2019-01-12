@@ -69,6 +69,7 @@ class GroupTagCategoryCrudController extends CrudController
             'type' => 'select2_multiple',
             'attribute' => 'name', // foreign key attribute that is shown to user
             'model' => "App\Models\GroupTag", // foreign key model
+            'entity' => 'tags'
             // 'select_all' => true, // show Select All and Clear buttons?
 
         ]);
