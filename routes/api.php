@@ -20,6 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->namespace('API')->group(function()
 {
+    # Zapier Webhooks
+    Route::post('hooks', 'RestHooksController@subscribe');
+    Route::delete('hooks/{id}', 'RestHooksController@delete');
+
     # Account Endpoints
     Route::prefix('accounts')->group(function () {
 
