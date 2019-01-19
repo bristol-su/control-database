@@ -136,13 +136,23 @@ class StudentTagAPIController extends Controller
 
     public function linkStudents(Request $request, StudentTag $studentTag)
     {
-
         $request->validate([
             'id' => 'required|array',
-            'id.*' => 'exists:students,id'
+            'id.*' => 'exists:students,id',
+            'data' => 'sometimes|array'
         ]);
-
-        $studentTag->students()->syncWithoutDetaching( $request->input('id') );
+        if($request->has('data'))
+        {
+            $attachArray = [];
+            for($i=0;$i<count($request->input('id'));$i++)
+            {
+                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i])?$request->input('data')[$i]:null)];
+            }
+            $studentTag->students()->attach($attachArray);
+        } else
+        {
+            $studentTag->students()->attach( $request->input('id'));
+        }
 
         return response('', 204);
     }

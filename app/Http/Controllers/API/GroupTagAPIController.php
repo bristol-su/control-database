@@ -148,10 +148,21 @@ class GroupTagAPIController extends Controller
 
         $request->validate([
             'id' => 'required|array',
-            'id.*' => 'exists:groups,id'
+            'id.*' => 'exists:groups,id',
+            'data' => 'sometimes|array'
         ]);
-
-        $groupTag->groups()->syncWithoutDetaching( $request->input('id') );
+        if($request->has('data'))
+        {
+            $attachArray = [];
+            for($i=0;$i<count($request->input('id'));$i++)
+            {
+                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i])?$request->input('data')[$i]:null)];
+            }
+            $groupTag->groups()->attach($attachArray);
+        } else
+        {
+            $groupTag->groups()->attach( $request->input('id'));
+        }
 
 
         return response('', 204);

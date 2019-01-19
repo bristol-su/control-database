@@ -144,10 +144,22 @@ class GroupAPIController extends Controller
 
         $request->validate([
             'id' => 'required|array',
-            'id.*' => 'exists:group_tags,id'
+            'id.*' => 'exists:group_tags,id',
+            'data' => 'sometimes|array'
         ]);
+        if($request->has('data'))
+        {
+            $attachArray = [];
+            for($i=0;$i<count($request->input('id'));$i++)
+            {
+                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i])?$request->input('data')[$i]:null)];
+            }
+            $group->tags()->attach($attachArray);
+        } else
+        {
+            $group->tags()->attach( $request->input('id'));
+        }
 
-        $group->tags()->syncWithoutDetaching( $request->input('id') );
 
         return response('', 204);
     }
@@ -186,7 +198,7 @@ class GroupAPIController extends Controller
             'id.*' => 'exists:students,id'
         ]);
 
-        $group->students()->syncWithoutDetaching( $request->input('id') );
+        $group->students()->attach( $request->input('id') );
 
         return response('', 204);
     }

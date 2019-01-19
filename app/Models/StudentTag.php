@@ -57,7 +57,7 @@ class StudentTag extends Model
 
     public function students()
     {
-        return $this->belongsToMany('App\Models\Student');
+        return $this->belongsToMany('App\Models\Student')->withPivot(['data']);
     }
     /*
     |--------------------------------------------------------------------------

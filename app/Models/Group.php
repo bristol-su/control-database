@@ -54,7 +54,7 @@ class Group extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\GroupTag');
+        return $this->belongsToMany('App\Models\GroupTag')->withPivot(['data']);
     }
 
     public function students()

@@ -135,10 +135,21 @@ class StudentAPIController extends Controller
 
         $request->validate([
             'id' => 'required|array',
-            'id.*' => 'exists:student_tags,id'
+            'id.*' => 'exists:student_tags,id',
+            'data' => 'sometimes|array'
         ]);
-
-        $student->tags()->syncWithoutDetaching( $request->input('id') );
+        if($request->has('data'))
+        {
+            $attachArray = [];
+            for($i=0;$i<count($request->input('id'));$i++)
+            {
+                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i])?$request->input('data')[$i]:null)];
+            }
+            $student->tags()->attach($attachArray);
+        } else
+        {
+            $student->tags()->attach( $request->input('id'));
+        }
 
         return response('', 204);
     }
@@ -176,7 +187,7 @@ class StudentAPIController extends Controller
             'id.*' => 'exists:groups,id'
         ]);
 
-        $student->groups()->syncWithoutDetaching( $request->input('id') );
+        $student->groups()->attach( $request->input('id') );
 
         return response('', 204);
     }
