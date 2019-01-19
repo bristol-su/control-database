@@ -121,6 +121,19 @@ class GroupAPIController extends Controller
         return response('', 204);
     }
 
+    /**
+     * Search for a Group
+     *
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function search(Request $request)
+    {
+        $groups = Group::where($request->only(['unioncloud_id']))->get();
+
+        return $groups;
+    }
 
 
 

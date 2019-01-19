@@ -115,6 +115,20 @@ class StudentAPIController extends Controller
         return response('', 204);
     }
 
+    /**
+     * Search for a Student
+     *
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function search(Request $request)
+    {
+        $students = Student::where($request->only(['uc_uid']))->get();
+
+        return $students;
+    }
+
 
     /*
     |--------------------------------------------------------------------------

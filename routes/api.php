@@ -47,6 +47,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
     Route::prefix('groups')->group(function () {
 
         # Resources
+        Route::post('/search', 'GroupAPIController@search');
         Route::get('/', 'GroupAPIController@getAll');
         Route::get('/{group}', 'GroupAPIController@get');
         Route::post('/', 'GroupAPIController@create');
@@ -110,6 +111,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
     Route::prefix('students')->group(function () {
 
         # Resources
+        Route::post('/search', 'StudentAPIController@search');
         Route::get('/', 'StudentAPIController@getAll');
         Route::get('/{student}', 'StudentAPIController@get');
         Route::post('/', 'StudentAPIController@create');
