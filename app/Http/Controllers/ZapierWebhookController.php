@@ -10,23 +10,23 @@ class ZapierWebhookController extends Controller
 
     public function subscribe(Request $request) {
         $input = $request->all();
+        // TODO Validate subscribe requests
 
         $webhook = ZapierWebhook::create([
-            "tenant_id" => auth()->user()->id,
-            "url" => $input["target_url"],
-            "event" => $input["event"]
+            "user_id" => auth()->user()->id,
+            "url" => $input["url"],
+            "event" => $input["event"],
+            "filter" => ($request->has('filter')?$input["filter"]:[])
         ]);
 
         return $webhook;
     }
 
     public function delete($id) {
-        $webhook = ZapierWebhook::find($id);
+        $webhook = ZapierWebhook::findOrFail($id);
         $webhook->delete();
 
-        return response()->json([
-            "success" => "success"
-        ]);
+        return response('', 204);
     }
 
 }

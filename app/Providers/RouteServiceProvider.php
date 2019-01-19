@@ -2,6 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Account;
+use App\Models\Group;
+use App\Models\GroupTag;
+use App\Models\GroupTagCategory;
+use App\Models\Student;
+use App\Models\StudentTag;
+use App\Models\StudentTagCategory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,6 +33,28 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        Route::bind('trashed_account', function($id) {
+            return Account::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_group', function($id) {
+            return Group::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_student', function($id) {
+            return Student::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_group_tag', function($id) {
+            return GroupTag::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_group_tag_category', function($id) {
+            return GroupTagCategory::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_student_tag', function($id) {
+            return StudentTag::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_student_tag_category', function($id) {
+            return StudentTagCategory::onlyTrashed()->findOrFail($id);
+        });
     }
 
     /**

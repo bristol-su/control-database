@@ -1,5 +1,5 @@
 @if ($crud->hasAccess('delete'))
-	<a href="javascript:void(0)" onclick="deleteEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey()) }}" class="btn btn-xs btn-default" data-button-type="delete"><i class="fa fa-trash"></i> {{ trans('backpack::crud.delete') }}</a>
+	<a href="javascript:void(0)" onclick="deleteEntry(this)" data-route="{{ url($crud->route.'/'.$entry->getKey().'/delete') }}" class="btn btn-xs btn-default" data-button-type="delete"><i class="fa fa-trash"></i> {{ trans('backpack::crud.delete') }}</a>
 @endif
 
 <script>
@@ -13,7 +13,7 @@
 	      var route = button.attr('data-route');
 	      var row = $("#crudTable a[data-route='"+route+"']").closest('tr');
 
-	      if (confirm("{{ trans('backpack::crud.delete_confirm') }}") == true) {
+	      if (confirm("{{ trans('backpack::crud.delete_confirm') }}") === true) {
 	          $.ajax({
 	              url: route,
 	              type: 'DELETE',
@@ -38,6 +38,7 @@
 	              },
 	              error: function(result) {
 	                  // Show an alert with the result
+					  console.log(result);
 	                  new PNotify({
 	                      title: "{{ trans('backpack::crud.delete_confirmation_not_title') }}",
 	                      text: "{{ trans('backpack::crud.delete_confirmation_not_message') }}",

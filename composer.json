@@ -12,10 +12,12 @@
         "ext-json": "^1.6",
         "backpack/crud": "^3.5",
         "barryvdh/laravel-elfinder": "^0.4.1",
+        "fico7489/laravel-pivot": "^3.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.7.*",
         "laravel/passport": "^7.0",
+        "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
         "twigger/unioncloud": "dev-master",
         "venturecraft/revisionable": "^1.28"

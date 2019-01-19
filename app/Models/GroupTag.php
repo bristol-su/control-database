@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class GroupTag extends Model
 {
-    use CrudTrait;
+    use CrudTrait, SoftDeletes, RevisionableTrait, PivotEventTrait;
 
     /*
     |--------------------------------------------------------------------------

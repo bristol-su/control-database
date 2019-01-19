@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Log;
 
 class ZapierWebhook extends Model
 {
-    protected $table = 'webhooks';
-    public $fillable = ['id', 'url', 'event', 'tenant_id'];
+    public $fillable = ['url', 'event', 'user_id', 'filter'];
+
+    protected $casts = [
+        'filter' => 'array'
+    ];
 
     public function fire($data)
     {

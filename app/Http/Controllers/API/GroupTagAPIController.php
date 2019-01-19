@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\GroupTagged;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\GroupTag;
@@ -151,6 +152,7 @@ class GroupTagAPIController extends Controller
         ]);
 
         $groupTag->groups()->syncWithoutDetaching( $request->input('id') );
+
 
         return response('', 204);
     }

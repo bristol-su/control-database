@@ -26,8 +26,9 @@ class GroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|min:3|',
-            'unioncloud_id' => 'required'
+            'name' => 'required|max:255|min:3',
+            'unioncloud_id' => 'required',
+            'email' => 'sometimes|nullable|email'
         ];
     }
 
@@ -51,7 +52,7 @@ class GroupRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+
         ];
     }
 }

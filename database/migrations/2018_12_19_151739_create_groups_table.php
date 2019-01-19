@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->unsignedInteger('unioncloud_id')->unique();
+            $table->string('email')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

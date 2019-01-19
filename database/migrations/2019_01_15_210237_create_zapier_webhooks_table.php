@@ -15,9 +15,10 @@ class CreateZapierWebhooksTable extends Migration
     {
         Schema::create('zapier_webhooks', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tenant_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('url');
             $table->string('event');
+            $table->text('filter')->nullable()->comment('Holds a filter specific to the webhook i.e. a Group ID to subscribe to.');
             $table->timestamps();
         });
     }

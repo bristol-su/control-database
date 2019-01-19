@@ -18,11 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->namespace('API')->group(function()
+Route::middleware('auth:api')->group(function()
 {
     # Zapier Webhooks
-    Route::post('hooks', 'RestHooksController@subscribe');
-    Route::delete('hooks/{id}', 'RestHooksController@delete');
+    Route::post('hooks', 'ZapierWebhookController@subscribe');
+    Route::delete('hooks/{id}', 'ZapierWebhookController@delete');
+});
+Route::middleware('auth:api')->namespace('API')->group(function()
+{
+
 
     # Account Endpoints
     Route::prefix('accounts')->group(function () {

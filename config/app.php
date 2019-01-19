@@ -173,6 +173,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],
@@ -225,5 +226,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    // Define the reference for the position tags
+    'student_tag_category_position_reference' => 'positions'
 
 ];

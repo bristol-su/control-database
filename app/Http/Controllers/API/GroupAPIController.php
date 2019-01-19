@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\GroupTagged;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Group;
@@ -117,7 +118,6 @@ class GroupAPIController extends Controller
         {
             return response('Group couldn\'t be deleted', 500);
         }
-
         return response('', 204);
     }
 

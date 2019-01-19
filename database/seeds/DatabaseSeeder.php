@@ -63,5 +63,15 @@ class DatabaseSeeder extends Seeder
                 $grp->accounts()->save(factory(App\Models\Account::class)->make(['is_department_code'=>false]));
             }
         }
+
+        # Create Positions
+        factory(App\Models\StudentTagCategory::class)->create(
+            [
+                'name' => 'Positions',
+                'description' => 'Committee Positions',
+                'reference' => 'positions'
+            ])->each(function (\App\Models\StudentTagCategory $category) {
+            factory(App\Models\StudentTag::class, 10)->create();
+        });
     }
 }
