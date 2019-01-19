@@ -125,6 +125,7 @@ class ZapierWebhookListener implements ShouldQueue
                 $data = $this->getDataForZapier($webhook->filter);
                 if($data !== false)
                 {
+                    Log::info('Triggering webhook '.$webhook->id);
                     $webhook->fire($data);
                 }
             } catch (\Exception $e)
