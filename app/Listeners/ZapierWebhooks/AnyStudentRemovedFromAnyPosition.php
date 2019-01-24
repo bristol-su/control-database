@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Listeners\ZapierWebhooks;
+use App\Events\StudentRemovedFromPosition;
 use App\Events\StudentTagged;
 use App\Events\StudentUntagged;
 use Illuminate\Queue\InteractsWithQueue;
@@ -11,7 +12,7 @@ class AnyStudentRemovedFromAnyPosition extends ZapierWebhookListener
 
     protected $eventSubscribeName = "AnyStudentRemovedFromAnyPosition";
 
-    protected $tag;
+    protected $position;
 
     protected $student;
 
@@ -19,16 +20,13 @@ class AnyStudentRemovedFromAnyPosition extends ZapierWebhookListener
     {
         return array_merge(
             array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'uc_uid'])))),
-            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->tag->only(['id', 'name', 'description'])))),
-            [
-                'tag_reference'=>$this->tag->category->reference.'.'.$this->tag->reference,
-            ]
+            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->position->only(['id', 'name', 'description']))))
         );
     }
 
     protected function passFilter($filter)
     {
-        return $this->tag->category->reference == config('app.student_tag_category_position_reference');
+        return true;
     }
 
     /**
@@ -45,15 +43,15 @@ class AnyStudentRemovedFromAnyPosition extends ZapierWebhookListener
      * Will update the webhooks in the following conditions:
      * -Any student gets a position tag
      *
-     * @param  StudentTagged  $event
+     * @param  StudentRemovedFromPosition  $event
      *
      * @return void
      *
      * @throws \Exception
      */
-    public function handle(StudentUntagged $event)
+    public function handle(StudentRemovedFromPosition $event)
     {
-        $this->tag = $event->tag;
+        $this->position = $event->position;
         $this->student = $event->student;
         $this->trigger();
     }

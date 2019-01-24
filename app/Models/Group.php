@@ -54,12 +54,12 @@ class Group extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\GroupTag')->withPivot(['data']);
+        return $this->belongsToMany('App\Models\GroupTag')->withPivot('data')->withTimestamps();
     }
 
     public function students()
     {
-        return $this->belongsToMany('App\Models\Student');
+        return $this->belongsToMany('App\Models\Student')->withTimestamps();
     }
 
     public function accounts()

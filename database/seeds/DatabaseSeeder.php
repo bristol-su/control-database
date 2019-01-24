@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             $cat->tags()->saveMany($tags);
         });
 
+        # Create positions
+        factory(App\Models\Position::class, 15)->create();
 
         # Create groups and users, and tag them.
         for($j=0;$j<30;$j++)
@@ -50,6 +52,10 @@ class DatabaseSeeder extends Seeder
                 # Tag the students
                 $tags = \App\Models\StudentTag::orderByRaw('RAND()')->take(10)->get();
                 $student->tags()->saveMany($tags);
+
+                # Give the students a position
+                $positions = \App\Models\Position::orderByRaw('RAND()')->take(rand(1, 2))->get();
+                $student->positions()->saveMany($positions, array_fill(0, count($positions), ['group_id' => $grp->id]));
             }
 
             # Tag the Group
@@ -63,15 +69,5 @@ class DatabaseSeeder extends Seeder
                 $grp->accounts()->save(factory(App\Models\Account::class)->make(['is_department_code'=>false]));
             }
         }
-
-        # Create Positions
-        factory(App\Models\StudentTagCategory::class)->create(
-            [
-                'name' => 'Positions',
-                'description' => 'Committee Positions',
-                'reference' => 'positions'
-            ])->each(function (\App\Models\StudentTagCategory $category) {
-            factory(App\Models\StudentTag::class, 10)->create();
-        });
     }
 }

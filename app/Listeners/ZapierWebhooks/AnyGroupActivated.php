@@ -37,6 +37,7 @@ class AnyGroupActivated extends ZapierWebhookListener
      * - When a group is restored having been deactivated
      *
      * @param GroupActivated $event
+     *
      * @return void
      */
     public function handle(GroupActivated $event)

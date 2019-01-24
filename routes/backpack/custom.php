@@ -16,6 +16,7 @@ Route::group([
     CRUD::resource('group', 'GroupCrudController');
     CRUD::resource('account', 'AccountCrudController');
     CRUD::resource('student', 'StudentCrudController');
+    CRUD::resource('position', 'PositionCrudController');
     CRUD::resource('group_tag', 'GroupTagCrudController');
     CRUD::resource('student_tag', 'StudentTagCrudController');
     CRUD::resource('group_tag_category', 'GroupTagCategoryCrudController');
@@ -42,4 +43,7 @@ Route::group([
 
     Route::delete('group_tag_category/{trashed_group_tag_category}/delete', 'GroupTagCategoryCrudController@delete');
     Route::post('group_tag_category/{trashed_group_tag_category}/restore', 'GroupTagCategoryCrudController@restore');
+
+    Route::delete('position/{trashed_position}/delete', 'PositionCrudController@delete');
+    Route::post('position/{trashed_position}/restore', 'PositionCrudController@restore');
 }); // this should be the absolute last line of this file

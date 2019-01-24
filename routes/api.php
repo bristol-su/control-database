@@ -125,8 +125,30 @@ Route::middleware('auth:api')->namespace('API')->group(function()
 
         # Groups
         Route::get('/{student}/groups', 'StudentAPIController@getGroups');
-        Route::post('/{student}/groups', 'StudentAPIController@linkGroups');
+        Route::post('/{student}/groups', 'StudentAPIControll    er@linkGroups');
         Route::delete('/{student}/groups/{group}', 'StudentAPIController@deleteGroups');
+
+        # Positions
+        Route::get('/{student}/positions', 'StudentAPIController@getPositions');
+        Route::post('/{student}/positions', 'StudentAPIController@linkPositions');
+        Route::delete('/{student}/positions/{position}', 'StudentAPIController@deletePositions');
+
+    });
+
+    # Student Endpoints
+    Route::prefix('positions')->group(function () {
+
+        # Resources
+        Route::get('/', 'PositionAPIController@getAll');
+        Route::get('/{position}', 'PositionAPIController@get');
+        Route::post('/', 'PositionAPIController@create');
+        Route::patch('/{position}', 'PositionAPIController@update');
+        Route::delete('/{position}', 'PositionAPIController@delete');
+
+        # Students
+        Route::get('/{position}/students', 'PositionAPIController@getStudents');
+        Route::post('/{position}/students', 'PositionAPIController@linkStudents');
+        Route::delete('/{position}/students/{student}', 'PositionAPIController@deleteStudents');
 
     });
 

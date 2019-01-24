@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Group;
+use App\Models\Position;
 use App\Models\Student;
 use App\Models\StudentTag;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -214,6 +215,86 @@ class StudentAPIController extends Controller
             return response('', 204);
         }
         return response('Group couldn\'t be removed from the student', 500);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Student -> Position Relationships
+    |--------------------------------------------------------------------------
+    |
+    | Enable the Many to Many relationship between students and positions
+    |
+    */
+
+
+    public function getPositions(Student $student)
+    {
+        return $student->positions;
+    }
+
+    /**
+     * Pass in the student in the URL, and the positions and their groups as follows:
+     * data => [
+     *  0 => [
+     *      'position_id' => 5,
+     *      'group_id' => 10
+     *  ],
+     *  ...
+     * ]
+     *
+     * @param Request $request
+     * @param Student $student
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
+    public function linkPositions(Request $request, Student $student)
+    {
+
+        $request->validate([
+            'data' => 'required|array',
+            'data.*.position_id' => 'exists:positions,id',
+            'data.*.group_id' => 'exists:groups,id'
+        ]);
+
+        foreach($request->input('data') as $data)
+        {
+            $student->positions()->attach( $data['position_id'], ['group_id' => $data['group_id'] ] );
+        }
+
+        return response('', 204);
+
+    }
+
+    /**
+     * The position to remove from the student is passed in the url, along with the student to remove
+     * it from. The Group ID is also passed in the body. To have a position removed, the relevent
+     * positions will be detached IF they have the right Group ID.
+     *
+     * @param Request $request
+     * @param Position $position
+     * @param Student $student
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
+    public function deletePositions(Request $request, Student $student, Position $position)
+    {
+
+        $request->validate([
+            'group_id' => 'required|exists:groups,id',
+        ]);
+
+        $groupId = (int) $request->input('group_id');
+        $positions = $student->positions()->where('position_id', $position->id)->get()->filter(function($position) use ($groupId) {
+            return $position->pivot->group_id === $groupId;
+        });
+
+        if( $student->positions()->wherePivot('group_id', $groupId)->detach($positions) || count($positions) === 0)
+        {
+            return response('', 204);
+        }
+
+        return response('Student couldn\'t be removed from the position', 500);
+
     }
 
     

@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Group;
 use App\Models\GroupTag;
 use App\Models\GroupTagCategory;
+use App\Models\Position;
 use App\Models\Student;
 use App\Models\StudentTag;
 use App\Models\StudentTagCategory;
@@ -42,6 +43,9 @@ class RouteServiceProvider extends ServiceProvider
         });
         Route::bind('trashed_student', function($id) {
             return Student::onlyTrashed()->findOrFail($id);
+        });
+        Route::bind('trashed_position', function($id) {
+            return Position::onlyTrashed()->findOrFail($id);
         });
         Route::bind('trashed_group_tag', function($id) {
             return GroupTag::onlyTrashed()->findOrFail($id);

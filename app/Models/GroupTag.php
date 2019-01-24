@@ -60,7 +60,7 @@ class GroupTag extends Model
 
     public function groups()
     {
-        return $this->belongsToMany('App\Models\Group')->withPivot(['data']);
+        return $this->belongsToMany('App\Models\Group')->withPivot('data')->withTimestamps();
     }
 
     /*

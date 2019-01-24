@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Listeners\ZapierWebhooks;
-use App\Events\StudentTagged;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\StudentGivenPosition;
+use App\Models\Student;
+use Illuminate\Support\Facades\Log;
 
 class AnyStudentGivenAnyPosition extends ZapierWebhookListener
 {
 
     protected $eventSubscribeName = "AnyStudentGivenAnyPosition";
 
-    protected $tag;
+    protected $position;
 
     protected $student;
 
@@ -18,16 +18,13 @@ class AnyStudentGivenAnyPosition extends ZapierWebhookListener
     {
         return array_merge(
             array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'uc_uid'])))),
-            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->tag->only(['id', 'name', 'description'])))),
-            [
-                'tag_reference'=>$this->tag->category->reference.'.'.$this->tag->reference,
-            ]
+            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->position->only(['id', 'name', 'description']))))
         );
     }
 
     protected function passFilter($filter)
     {
-        return $this->tag->category->reference == config('app.student_tag_category_position_reference');
+        return true;
     }
 
     /**
@@ -44,15 +41,15 @@ class AnyStudentGivenAnyPosition extends ZapierWebhookListener
      * Will update the webhooks in the following conditions:
      * -Any student gets a position tag
      *
-     * @param  StudentTagged  $event
+     * @param  StudentGivenPosition  $event
      *
      * @return void
      *
      * @throws \Exception
      */
-    public function handle(StudentTagged $event)
+    public function handle(StudentGivenPosition $event)
     {
-        $this->tag = $event->tag;
+        $this->position = $event->position;
         $this->student = $event->student;
         $this->trigger();
     }

@@ -37,6 +37,7 @@ class ZapierWebhookListener implements ShouldQueue
         $event = $this->getEventFromListener();
 
         $webhooks = $this->getWebhooksSubscribedToEvent($event);
+
         if(count($webhooks) === 0)
         {
             return true;
@@ -72,12 +73,7 @@ class ZapierWebhookListener implements ShouldQueue
      */
     private function getDataForZapier($filter)
     {
-        if($this->passFilter($filter) === true)
-        {
-            $data = $this->formatForZapier($filter);
-            return $data;
-        }
-        return false;
+        return $this->formatForZapier($filter);
     }
     /**
      * Gets the event name from the listener, assuming the listener has
@@ -120,14 +116,17 @@ class ZapierWebhookListener implements ShouldQueue
     {
         foreach($webhooks as $webhook)
         {
+            if($this->passFilter($webhook->filter) !== true)
+            {
+                continue;
+            }
+
             try
             {
+
                 $data = $this->getDataForZapier($webhook->filter);
-                if($data !== false)
-                {
-                    Log::info('Triggering webhook '.$webhook->id);
-                    $webhook->fire($data);
-                }
+                $webhook->fire($data);
+
             } catch (\Exception $e)
             {
                 Log::error($e);

@@ -16,6 +16,8 @@ class ZapierWebhook extends Model
 
     public function fire($data)
     {
+        Log::info('Triggering webhook '.$this->id.' with data from the event '.$this->event);
+
         $client = new Client();
 
         $response = "";

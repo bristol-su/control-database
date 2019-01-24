@@ -8,7 +8,9 @@ use App\Events\GroupDeactivated;
 use App\Events\GroupTagged;
 use App\Events\GroupUntagged;
 use App\Events\StudentAddedToGroup;
+use App\Events\StudentGivenPosition;
 use App\Events\StudentRemovedFromGroup;
+use App\Events\StudentRemovedFromPosition;
 use App\Events\StudentTagged;
 use App\Events\StudentUntagged;
 use App\Listeners\ZapierWebhooks\AnyAttributeOfAnyGroupUpdated;
@@ -84,17 +86,20 @@ class EventServiceProvider extends ServiceProvider
             AnyStudentTaggedWithAnyStudentTag::class,
             AnyStudentTaggedWithAnyTagFromStudentTagCategory::class,
             AnyStudentTaggedWithASpecificStudentTag::class,
-            AnyStudentGivenSpecificPosition::class,
-            AnyStudentGivenAnyPosition::class
         ],
         StudentUntagged::class => [
             AnyStudentUntaggedFromAnyStudentTag::class,
             AnyStudentUntaggedFromAnyTagFromStudentTagCategory::class,
             AnyStudentUntaggedFromASpecificStudentTag::class,
+        ],
+        StudentGivenPosition::class => [
+            AnyStudentGivenSpecificPosition::class,
+            AnyStudentGivenAnyPosition::class
+        ],
+        StudentRemovedFromPosition::class => [
             AnyStudentRemovedFromSpecificPosition::class,
             AnyStudentRemovedFromAnyPosition::class
-
-        ],
+        ]
     ];
 
     /**
