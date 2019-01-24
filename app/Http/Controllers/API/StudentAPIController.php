@@ -125,7 +125,7 @@ class StudentAPIController extends Controller
      */
     public function search(Request $request)
     {
-        $students = Student::where($request->only(['uc_uid']))->get();
+        $students = Student::where('uc_uid', $request->input('uc_uid'))->get();
 
         return $students;
     }
@@ -182,8 +182,8 @@ class StudentAPIController extends Controller
         if($student->tags()->detach( $studentTag ))
         {
             return array_merge(
-                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($student->only(['id', 'name', 'description'])))),
-                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($studentTag->only(['id', 'uc_uid']))))
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
             );
         }
         return response('Student couldn\'t be detached', 500);

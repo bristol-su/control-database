@@ -157,12 +157,14 @@ class PositionAPIController extends Controller
             'data.*.group_id' => 'exists:groups,id'
         ]);
 
+        $studentIds = [];
         foreach($request->input('data') as $data)
         {
             $position->students()->attach( $data['student_id'], ['group_id' => $data['group_id'] ] );
+            $studentIds[] = $data['student_id'];
         }
 
-        $students = Student::find($request->input('id'))->each(function($student) {
+        $students = Student::find($studentIds)->each(function($student) {
             return array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))));
         });
 

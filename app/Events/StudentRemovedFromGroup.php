@@ -6,6 +6,7 @@ use App\Models\Group;
 use App\Models\Student;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Support\Facades\Log;
 
 class StudentRemovedFromGroup
 {

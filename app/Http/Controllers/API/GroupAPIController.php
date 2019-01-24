@@ -130,7 +130,7 @@ class GroupAPIController extends Controller
      */
     public function search(Request $request)
     {
-        $groups = Group::where($request->only(['unioncloud_id']))->get();
+        $groups = Group::where('unioncloud_id', $request->input('unioncloud_id'))->get();
 
         return $groups;
     }
@@ -297,7 +297,7 @@ class GroupAPIController extends Controller
                 array_flip(array_map(function($u){ return 'account_'.$u; }, array_flip($account->only(['id', 'uc_uid']))))
             );
         }
-        return response('Account wasn\'t assigned to group', 204);
+        return response('Account wasn\'t assigned to group', 200);
 
     }
 }

@@ -125,7 +125,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
 
         # Groups
         Route::get('/{student}/groups', 'StudentAPIController@getGroups');
-        Route::post('/{student}/groups', 'StudentAPIControll    er@linkGroups');
+        Route::post('/{student}/groups', 'StudentAPIController@linkGroups');
         Route::delete('/{student}/groups/{group}', 'StudentAPIController@deleteGroups');
 
         # Positions
