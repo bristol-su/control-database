@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentAddedToGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/StudentAddedToGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentRemovedFromGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/StudentRemovedFromGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/CommitteeMemberRemovedFromGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/CommitteeMemberRemovedFromGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AccountAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/AccountAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithASpecificStudentTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithASpecificStudentTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromASpecificStudentTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromASpecificStudentTag.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,30 +27,10 @@
     <favorites_list name="control-database" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="78" selection-start-line="78" selection-start-column="2" selection-end-line="83" selection-end-column="12" />
-              <folding>
-                <element signature="e#33#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>*</find>
-      <find>$callback</find>
-      <find>use App\Traits\InteractsWithZapier;</find>
-      <find>implements ShouldQueue</find>
-      <find>tenant_id</find>
-      <find>getModelAttributeValue</find>
-      <find>Group</find>
       <find>getDataForZapier</find>
       <find>boot</find>
       <find>boot(</find>
@@ -68,22 +54,21 @@
       <find>function detach</find>
       <find>group</find>
       <find>function detach(</find>
+      <find>$model1</find>
+      <find>-&gt;tags()-&gt;e</find>
+      <find>model1</find>
+      <find>) === 0</find>
+      <find>) === 0</find>
+      <find>model2</find>
+      <find>group_</find>
     </findStrings>
     <replaceStrings>
-      <replace>categories</replace>
-      <replace>'/', '</replace>
-      <replace>GroupTagCategory</replace>
-      <replace>StudentTag</replace>
       <replace>StudentTagCategory</replace>
       <replace>GroupTag</replace>
       <replace>studentTagCategory</replace>
-      <replace>groupTag</replace>
-      <replace>groupTagCategory</replace>
-      <replace>studentTag</replace>
       <replace>only([</replace>
       <replace>sometimes`</replace>
       <replace>sometimes</replace>
-      <replace>account</replace>
       <replace>Students</replace>
       <replace>Tagged</replace>
       <replace>StudentRemovedFromGroup</replace>
@@ -98,8 +83,16 @@
       <replace>attach</replace>
       <replace />
       <replace>students</replace>
-      <replace>student</replace>
+      <replace>groupTagCategory</replace>
+      <replace>group_tag</replace>
+      <replace>account</replace>
+      <replace>groupTag</replace>
+      <replace>studentTags</replace>
+      <replace>studentTag</replace>
+      <replace>group</replace>
       <replace>position</replace>
+      <replace>student</replace>
+      <replace>student`</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -108,10 +101,10 @@
       <dir>$PROJECT_DIR$/resources/views/vendor</dir>
       <dir>$PROJECT_DIR$/database</dir>
       <dir>$PROJECT_DIR$/</dir>
-      <dir>$PROJECT_DIR$/app/</dir>
       <dir>$PROJECT_DIR$/app/Http/Controllers/API</dir>
       <dir>$PROJECT_DIR$/app/Http/Controllers</dir>
       <dir>$PROJECT_DIR$/app/Listeners/ZapierWebhooks</dir>
+      <dir>$PROJECT_DIR$/app/</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -120,27 +113,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyAttributeOfAnyGroupUpdated.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/SpecificAttributeOfAnyGroupUpdated.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/CommitteeMemberAssignedToGroup.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupTaggedWithASpecificGroupTag.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupUntaggedFromASpecificGroupTag.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithAnyTagFromStudentTagCategory.php" />
         <option value="$PROJECT_DIR$/config/telescope.php" />
         <option value="$PROJECT_DIR$/app/Providers/TelescopeServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ZapierWebhookController.php" />
         <option value="$PROJECT_DIR$/config/logging.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupActivated.php" />
         <option value="$PROJECT_DIR$/app/Positions.php" />
         <option value="$PROJECT_DIR$/app/Models/Positions.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_23_213337_create_student_position_table.php" />
         <option value="$PROJECT_DIR$/database/factories/PositionFactory.php" />
         <option value="$PROJECT_DIR$/app/Models/GroupTag.php" />
-        <option value="$PROJECT_DIR$/app/Models/StudentTag.php" />
         <option value="$PROJECT_DIR$/app/Models/Group.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_23_213337_create_position_student_table.php" />
@@ -151,8 +135,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionCrudController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_23_213108_create_positions_table.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
         <option value="$PROJECT_DIR$/app/Observers/StudentObserver.php" />
         <option value="$PROJECT_DIR$/app/Events/StudentRemovedFromPosition.php" />
         <option value="$PROJECT_DIR$/app/Events/StudentGivenPosition.php" />
@@ -171,6 +153,17 @@
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/CommitteeMemberRemovedFromGroup.php" />
         <option value="$PROJECT_DIR$/app/Events/StudentRemovedFromGroup.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromASpecificStudentTag.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithASpecificStudentTag.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/AccountAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Models/StudentTag.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" />
       </list>
     </option>
   </component>
@@ -489,18 +482,17 @@
       <workItem from="1548026166886" duration="103000" />
       <workItem from="1548257610356" duration="3488000" />
       <workItem from="1548278749869" duration="7923000" />
-      <workItem from="1548348220942" duration="6545000" />
+      <workItem from="1548348220942" duration="14322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215916000" />
+    <option name="totallyTimeSpent" value="223693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1004" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.3062967" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.24866596" />
       <window_info id="Structure" order="1" sideWeight="0.50345623" side_tool="true" weight="0.3062967" />
       <window_info id="Favorites" order="2" sideWeight="0.5011494" side_tool="true" weight="0.35592315" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -526,120 +518,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupCreated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupActivated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupTaggedWithAnyGroupTag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="7" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/CommitteeMemberAssignedToGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="97" selection-start-line="26" selection-start-column="97" selection-end-line="26" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromAnyStudentTag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="91" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="33" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyAttributeOfAnyGroupUpdated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#48#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/SpecificAttributeOfAnyGroupUpdated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding>
-            <element signature="e#48#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/PositionFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/StudentTagCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/GroupTagCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <element signature="e#30#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/GroupTag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="62" column="92" selection-start-line="62" selection-start-column="92" selection-end-line="62" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="46" column="6" lean-forward="true" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/PositionRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_23_213337_create_position_student_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="57" column="119" selection-start-line="57" selection-start-column="119" selection-end-line="57" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -752,59 +630,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromSpecificPosition.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#47#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromAnyPosition.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#47#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PositionCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="786">
           <caret line="138" column="37" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
           <folding>
             <element signature="e#46#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="290" selection-start-line="290" selection-end-line="290" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="189" column="105" selection-start-line="189" selection-start-column="105" selection-end-line="189" selection-end-column="105" />
-          <folding>
-            <element signature="e#44#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/StudentTag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="88" selection-start-line="54" selection-start-column="88" selection-end-line="54" selection-end-column="88" />
-          <folding>
-            <element signature="e#30#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Position.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -864,13 +688,6 @@
           <folding>
             <element signature="e#34#70#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/ZapierWebhookListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -913,6 +730,159 @@
           <caret line="78" selection-start-line="78" selection-start-column="2" selection-end-line="83" selection-end-column="12" />
           <folding>
             <element signature="e#33#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyGroupCreated.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/ZapierWebhookListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="105" column="6" lean-forward="true" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/SpecificAttributeOfAnyGroupUpdated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding>
+            <element signature="e#48#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromASpecificStudentTag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="119" selection-start-line="19" selection-start-column="119" selection-end-line="19" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithASpecificStudentTag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="119" selection-start-line="17" selection-start-column="119" selection-end-line="17" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromAnyTagFromStudentTagCategory.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentUntaggedFromAnyStudentTag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="33" column="91" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="33" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithAnyTagFromStudentTagCategory.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithAnyStudentTag.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromSpecificPosition.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#47#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromAnyPosition.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding>
+            <element signature="e#47#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/StudentTag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <element signature="e#30#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="414" column="20" selection-start-line="414" selection-start-column="20" selection-end-line="414" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Position.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/AccountAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="125" column="24" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="276" column="27" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="200" column="36" selection-start-line="200" selection-start-column="36" selection-end-line="200" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="166" column="23" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="283" column="29" selection-start-line="283" selection-start-column="29" selection-end-line="283" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+          <folding>
+            <element signature="e#44#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

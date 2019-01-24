@@ -105,7 +105,7 @@ class StudentTagCategoryAPIController extends Controller
      *
      * @param StudentTagCategory $studentTagCategory
      *
-     * @return Response
+     * @return StudentTagCategory
      */
     public function delete(StudentTagCategory $studentTagCategory)
     {
@@ -115,8 +115,7 @@ class StudentTagCategoryAPIController extends Controller
         {
             return response('StudentTagCategory couldn\'t be deleted', 500);
         }
-
-        return response('', 204);
+        return $studentTagCategory;
     }
 
     /*
@@ -142,14 +141,19 @@ class StudentTagCategoryAPIController extends Controller
             'id.*' => 'exists:student_tags,id'
         ]);
 
+        $tags = [];
         foreach($request->input('id') as $id)
         {
             $studentTag = StudentTag::find((int) $id);
             $studentTag->student_tag_category = $studentTagCategory->id;
             $studentTag->save();
+            $tags[] = array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description']))));
         }
 
-        return response('', 204);
+        return array_merge(
+            array_flip(array_map(function($u){ return 'tag_category'.$u; }, array_flip($studentTagCategory->only(['id', 'name', 'description'])))),
+            ["tags" => $tags]
+        );
     }
 
     public function deleteStudentTags(Request $request, StudentTagCategory $studentTagCategory, StudentTag $studentTag)
@@ -159,7 +163,10 @@ class StudentTagCategoryAPIController extends Controller
         {
             $studentTag->student_tag_category= null;
             $studentTag->save();
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'tag_category'.$u; }, array_flip($studentTagCategory->only(['id', 'name', 'description']))))
+            );
 
         }
         return response('Student Tag wasn\'t assigned to student tag category', 500);

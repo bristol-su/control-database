@@ -105,7 +105,7 @@ class PositionAPIController extends Controller
      *
      * @param Position $position
      *
-     * @return Response
+     * @return Position
      */
     public function delete(Position $position)
     {
@@ -115,7 +115,7 @@ class PositionAPIController extends Controller
         {
             return response('Position couldn\'t be deleted', 500);
         }
-        return response('', 204);
+        return $position;
     }
 
 
@@ -162,9 +162,15 @@ class PositionAPIController extends Controller
             $position->students()->attach( $data['student_id'], ['group_id' => $data['group_id'] ] );
         }
 
-        return response('', 204);
-    }
+        $students = Student::find($request->input('id'))->each(function($student) {
+            return array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))));
+        });
 
+        return array_merge(
+            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($position->only(['id', 'name', 'description'])))),
+            ["students" => $students]
+        );
+    }
     /**
      * The position to remove from the student is passed in the url, along with the student to remove
      * it from. The Group ID is also passed in the body. To have a position removed, the relevent
@@ -183,13 +189,14 @@ class PositionAPIController extends Controller
         ]);
 
         $groupId = (int) $request->input('group_id');
-        $students = $position->students()->where('student_id', $student->id)->get()->filter(function($student) use ($groupId) {
-            return $student->pivot->group_id === $groupId;
-        });
+        $students = $position->students()->where('student_id', $student->id)->wherePivot('group_id', $groupId)->get();
 
-        if( $position->students()->wherePivot('group_id', $groupId)->detach($students) || count($students) === 0)
+        if(count($students) !== 0 || $position->students()->detach($students))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($position->only(['id', 'name', 'description'])))),
+                ["students" => $students]
+            );
         }
 
         return response('Students couldn\'t be removed from the position', 500);

@@ -106,7 +106,7 @@ class StudentTagAPIController extends Controller
      *
      * @param StudentTag $studentTag
      *
-     * @return Response
+     * @return StudentTag
      */
     public function delete(StudentTag $studentTag)
     {
@@ -117,7 +117,7 @@ class StudentTagAPIController extends Controller
             return response('StudentTag couldn\'t be deleted', 500);
         }
 
-        return response('', 204);
+        return $studentTag;
     }
 
     /*
@@ -154,7 +154,14 @@ class StudentTagAPIController extends Controller
             $studentTag->students()->attach( $request->input('id'));
         }
 
-        return response('', 204);
+        $students = Student::find($request->input('id'))->each(function($student) {
+            return array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+            ["students" => $students]
+        );
     }
 
     public function deleteStudents(Request $request, StudentTag $studentTag, Student $student)
@@ -162,7 +169,10 @@ class StudentTagAPIController extends Controller
 
         if($studentTag->students()->detach( $student ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
+            );
         }
         return response('Student couldn\'t be detached', 500);
 
@@ -188,10 +198,14 @@ class StudentTagAPIController extends Controller
             'id' => 'required|exists:student_tag_categories'
         ]);
 
-        $studentTag->student_tag_category = (int) $request->input('id');
+        $studentTagCategory = StudentTagCategory::find((int) $request->input('id'));
+        $studentTag->student_tag_category = $studentTagCategory->id;
         $studentTag->save();
 
-        return $studentTag;
+        return array_merge(
+            array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+            array_flip(array_map(function($u){ return 'tag_category'.$u; }, array_flip($studentTagCategory->only(['id', 'name', 'description']))))
+        );
     }
 
 }

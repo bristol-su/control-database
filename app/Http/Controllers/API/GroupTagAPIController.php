@@ -110,7 +110,7 @@ class GroupTagAPIController extends Controller
      *
      * @param GroupTag $groupTag
      *
-     * @return Response
+     * @return GroupTag
      */
     public function delete(GroupTag $groupTag)
     {
@@ -121,7 +121,7 @@ class GroupTagAPIController extends Controller
             return response('GroupTag couldn\'t be deleted', 500);
         }
 
-        return response('', 204);
+        return $groupTag;
     }
 
 
@@ -164,8 +164,15 @@ class GroupTagAPIController extends Controller
             $groupTag->groups()->attach( $request->input('id'));
         }
 
+        $groups = Group::find($request->input('id'))->each(function($group) {
+            return array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email']))));
+        });
 
-        return response('', 204);
+        return array_merge(
+            array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description'])))),
+            ["groups" => $groups]
+        );
+
     }
 
     public function deleteGroups(Request $request, GroupTag $groupTag, Group $group)
@@ -173,15 +180,15 @@ class GroupTagAPIController extends Controller
 
         if($groupTag->groups()->detach( $group ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email']))))
+            );
         }
         return response('Group couldn\'t be detached', 500);
 
     }
-        
-    
-    
-    
+
     /*
     |--------------------------------------------------------------------------
     | Group Tag -> Group Tag Category Relationships
@@ -203,10 +210,13 @@ class GroupTagAPIController extends Controller
             'id' => 'required|exists:group_tag_categories|nullable'
         ]);
 
-        $groupTag->group_tag_category = (int) $request->input('id');
+        $groupTagCategory = \App\Models\GroupTagCategory::find((int) $request->input('id'));
+        $groupTag->group_tag_category = $groupTagCategory->id;
         $groupTag->save();
 
-        return $groupTag;
+        return array_merge(
+            array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description'])))),
+            array_flip(array_map(function($u){ return 'tag_category_'.$u; }, array_flip($groupTagCategory->only(['id', 'name', 'description']))))
+        );
     }
-
 }

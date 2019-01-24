@@ -102,7 +102,7 @@ class StudentAPIController extends Controller
      *
      * @param Student $student
      *
-     * @return Response
+     * @return Student
      */
     public function delete(Student $student)
     {
@@ -113,7 +113,7 @@ class StudentAPIController extends Controller
             return response('Student couldn\'t be deleted', 500);
         }
 
-        return response('', 204);
+        return $student;
     }
 
     /**
@@ -166,7 +166,14 @@ class StudentAPIController extends Controller
             $student->tags()->attach( $request->input('id'));
         }
 
-        return response('', 204);
+        $studentTags = StudentTag::find($request->input('id'))->each(function($studentTag) {
+            return array_flip(array_map(function($u){ return 'student_tags_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            ["student_tags" => $studentTags]
+        );
     }
 
     public function deleteStudentTags(Request $request, Student $student, StudentTag $studentTag)
@@ -174,7 +181,10 @@ class StudentAPIController extends Controller
 
         if($student->tags()->detach( $studentTag ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($student->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($studentTag->only(['id', 'uc_uid']))))
+            );
         }
         return response('Student couldn\'t be detached', 500);
     }
@@ -204,7 +214,14 @@ class StudentAPIController extends Controller
 
         $student->groups()->attach( $request->input('id') );
 
-        return response('', 204);
+        $groups = Group::find($request->input('id'))->each(function($group) {
+            return array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            ["groups" => $groups]
+        );
     }
 
     public function deleteGroups(Student $student, Group $group)
@@ -212,7 +229,10 @@ class StudentAPIController extends Controller
 
         if($student->groups()->detach( $group ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email'])))),
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
+            );
         }
         return response('Group couldn\'t be removed from the student', 500);
     }
@@ -261,7 +281,14 @@ class StudentAPIController extends Controller
             $student->positions()->attach( $data['position_id'], ['group_id' => $data['group_id'] ] );
         }
 
-        return response('', 204);
+        $positions = Position::find($request->input('id'))->each(function($position) {
+            return array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($position->only(['id', 'name', 'description']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            ["positions" => $positions]
+        );
 
     }
 
@@ -284,19 +311,18 @@ class StudentAPIController extends Controller
         ]);
 
         $groupId = (int) $request->input('group_id');
-        $positions = $student->positions()->where('position_id', $position->id)->get()->filter(function($position) use ($groupId) {
-            return $position->pivot->group_id === $groupId;
-        });
 
-        if( $student->positions()->wherePivot('group_id', $groupId)->detach($positions) || count($positions) === 0)
+        $positions = $student->positions()->where('position_id', $position->id)->wherePivot('group_id', $groupId)->get();
+
+        if( $student->positions()->detach($positions) || count($positions) === 0)
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+                ["positions" => $positions]
+            );
         }
 
         return response('Student couldn\'t be removed from the position', 500);
 
     }
-
-    
-    
 }

@@ -17,7 +17,7 @@ class AnyStudentUntaggedFromASpecificStudentTag extends ZapierWebhookListener
     protected function formatForZapier($filter)
     {
         return array_merge(
-            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'name', 'unioncloud_id', 'email'])))),
+            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'uc_uid'])))),
             array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($this->tag->only(['id', 'name', 'description'])))),
             [
                 'tag_category_name'=>$this->tag->category->name,

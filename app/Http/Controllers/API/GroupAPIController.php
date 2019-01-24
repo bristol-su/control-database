@@ -108,7 +108,7 @@ class GroupAPIController extends Controller
      *
      * @param Group $group
      *
-     * @return Response
+     * @return Group
      */
     public function delete(Group $group)
     {
@@ -118,7 +118,7 @@ class GroupAPIController extends Controller
         {
             return response('Group couldn\'t be deleted', 500);
         }
-        return response('', 204);
+        return $group;
     }
 
     /**
@@ -134,8 +134,6 @@ class GroupAPIController extends Controller
 
         return $groups;
     }
-
-
 
     /*
     |--------------------------------------------------------------------------
@@ -174,7 +172,15 @@ class GroupAPIController extends Controller
         }
 
 
-        return response('', 204);
+        $groupTags = GroupTag::find($request->input('id'))->each(function($groupTag) {
+            return array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
+            ["group_tags" => $groupTags]
+        );
+        
     }
 
     public function deleteGroupTags(Request $request, Group $group, GroupTag $groupTag)
@@ -182,12 +188,13 @@ class GroupAPIController extends Controller
 
         if($group->tags()->detach( $groupTag ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
+                array_flip(array_map(function($u){ return 'group_tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description']))))
+            );
         }
         return response('Group couldn\'t be detached', 500);
     }
-
-
 
     /*
     |--------------------------------------------------------------------------
@@ -213,7 +220,14 @@ class GroupAPIController extends Controller
 
         $group->students()->attach( $request->input('id') );
 
-        return response('', 204);
+        $students = Group::find($request->input('id'))->each(function($student, $item) {
+            return array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
+            ["students" => $students]
+        );
     }
 
     public function deleteStudents(Request $request, Group $group, Student $student)
@@ -221,7 +235,10 @@ class GroupAPIController extends Controller
 
         if($group->students()->detach( $student ))
         {
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
+                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
+            );
         }
         return response('Student couldn\'t be removed from the group', 500);
     }
@@ -257,7 +274,14 @@ class GroupAPIController extends Controller
             $account->save();
         }
 
-        return response('', 204);
+        $accounts = Account::find($request->input('id'))->each(function($account) {
+            return array_flip(array_map(function($u){ return 'account_'.$u; }, array_flip($account->only(['id', 'description', 'code', 'is_department_code']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
+            ["accounts" => $accounts]
+        );
     }
 
     public function deleteAccounts(Request $request, Group $group, Account $account)
@@ -267,10 +291,14 @@ class GroupAPIController extends Controller
         {
             $account->group_id = null;
             $account->save();
-            return response('', 204);
 
+            return array_merge(
+                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'description', 'unioncloud_id'])))),
+                array_flip(array_map(function($u){ return 'account_'.$u; }, array_flip($account->only(['id', 'uc_uid']))))
+            );
         }
         return response('Account wasn\'t assigned to group', 204);
 
     }
 }
+

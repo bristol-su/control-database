@@ -112,7 +112,7 @@ class AccountAPIController extends Controller
      *
      * @param Account $account
      *
-     * @return Response
+     * @return Account
      */
     public function delete(Account $account)
     {
@@ -123,7 +123,7 @@ class AccountAPIController extends Controller
             return response('Account couldn\'t be deleted', 500);
         }
 
-        return response('', 204);
+        return $account;
     }
 
 
@@ -147,10 +147,15 @@ class AccountAPIController extends Controller
             'id' => 'required|exists:groups|nullable'
         ]);
 
-        $account->group_id = (int) $request->input('id');
+        $group = Group::findOrFail((int) $request->input('id'));
+        $account->group_id = $group->id;
         $account->save();
 
-        return $account;
+        // TODO Put this in a trait or helper function
+        return array_merge(
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email'])))),
+            array_flip(array_map(function($u){ return 'account_'.$u; }, array_flip($account->only(['id', 'description', 'is_department_code', 'code']))))
+        );
     }
 
 }

@@ -105,7 +105,7 @@ class GroupTagCategoryAPIController extends Controller
      *
      * @param GroupTagCategory $groupTagCategory
      *
-     * @return Response
+     * @return GroupTagCategory
      */
     public function delete(GroupTagCategory $groupTagCategory)
     {
@@ -116,7 +116,7 @@ class GroupTagCategoryAPIController extends Controller
             return response('GroupTagCategory couldn\'t be deleted', 500);
         }
 
-        return response('', 204);
+        return $groupTagCategory;
     }
 
     /*
@@ -149,7 +149,14 @@ class GroupTagCategoryAPIController extends Controller
             $groupTag->save();
         }
 
-        return response('', 204);
+        $groupTags = GroupTag::find($request->input('id'))->each(function($groupTag) {
+            return array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description']))));
+        });
+
+        return array_merge(
+            array_flip(array_map(function($u){ return 'groupTagCategory_'.$u; }, array_flip($groupTagCategory->only(['id', 'name', 'description'])))),
+            ["tags" => $groupTags]
+        );
     }
 
     public function deleteGroupTags(GroupTagCategory $groupTagCategory, GroupTag $groupTag)
@@ -159,7 +166,10 @@ class GroupTagCategoryAPIController extends Controller
         {
             $groupTag->group_tag_category= null;
             $groupTag->save();
-            return response('', 204);
+            return array_merge(
+                array_flip(array_map(function($u){ return 'tag_category_'.$u; }, array_flip($groupTagCategory->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($groupTag->only(['id', 'name', 'description']))))
+            );
 
         }
         return response('Group Tag wasn\'t assigned to group tag category', 500);
