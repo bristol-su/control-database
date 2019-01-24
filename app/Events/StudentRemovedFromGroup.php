@@ -22,6 +22,7 @@ class StudentRemovedFromGroup
      */
     public function __construct(Student $student, Group $group)
     {
+        Log::warning('Remove this functionality Toby!');
         $this->student = $student;
         $this->group = $group;
     }

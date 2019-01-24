@@ -76,12 +76,12 @@ class EventServiceProvider extends ServiceProvider
             AnyGroupUntaggedFromAnyTagFromGroupTagCategory::class,
             AnyGroupUntaggedFromASpecificGroupTag::class
         ],
-        StudentAddedToGroup::class => [
-            CommitteeMemberAssignedToGroup::class
-        ],
-        StudentRemovedFromGroup::class => [
-            CommitteeMemberRemovedFromGroup::class
-        ],
+//        StudentAddedToGroup::class => [
+//            CommitteeMemberAssignedToGroup::class
+//        ],
+//        StudentRemovedFromGroup::class => [
+//            CommitteeMemberRemovedFromGroup::class
+//        ],
         StudentTagged::class => [
             AnyStudentTaggedWithAnyStudentTag::class,
             AnyStudentTaggedWithAnyTagFromStudentTagCategory::class,

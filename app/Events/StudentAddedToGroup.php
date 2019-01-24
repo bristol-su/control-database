@@ -6,6 +6,7 @@ use App\Models\Group;
 use App\Models\Student;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Support\Facades\Log;
 
 class StudentAddedToGroup
 {
@@ -22,6 +23,7 @@ class StudentAddedToGroup
      */
     public function __construct(Student $student, Group $group)
     {
+        Log::warning('Remove this functionality Toby!');
         $this->student = $student;
         $this->group = $group;
     }

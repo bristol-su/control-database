@@ -36,7 +36,7 @@ class CommitteeMemberRemovedFromGroup extends ZapierWebhookListener
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
