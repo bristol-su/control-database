@@ -16,6 +16,7 @@ class GroupObserver
     public function pivotAttached($model, $relationName, $pivotIds, $pivotIdsAttributes)
     {
         // Group Tagged
+        // TODO Is this check enough? It may be letting stuff through
         if($relationName === 'tags')
         {
             foreach($pivotIds as $groupTagID)
