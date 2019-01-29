@@ -56,15 +56,6 @@ class StudentCrudController extends CrudController
             'pivot' => true,
             'entity' => 'tags'
         ]);
-        $this->crud->addField([
-            'name' => 'groups', // the method that defines the relationship in your Model
-            'label' => "Committee for",
-            'type' => 'select2_multiple',
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => "App\Models\Group", // foreign key model,
-            'pivot' => true,
-            'entity' => 'groups'
-        ]);
         /*
          * Buttons allowed are:
          *
