@@ -24,7 +24,7 @@ Route::middleware('auth:api')->group(function()
     Route::post('hooks', 'ZapierWebhookController@subscribe');
     Route::delete('hooks/{id}', 'ZapierWebhookController@delete');
 });
-Route::middleware('auth:api')->namespace('API')->group(function()
+Route::middleware(['auth:api', 'client'])->namespace('API')->group(function()
 {
 
 
