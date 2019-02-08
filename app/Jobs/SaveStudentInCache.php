@@ -43,6 +43,8 @@ class SaveStudentInCache implements ShouldQueue
         if(!Cache::has($cacheKey)) {
             try {
                 $user = $unioncloud->users()->getByUID($this->uid)->get()->first();
+                Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, $this->filterUser($user), 20000);
+
             } catch (IncorrectRequestParameterException $exception)
             {
                 Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, json_encode([
@@ -52,7 +54,6 @@ class SaveStudentInCache implements ShouldQueue
                     'id' => $this->uid
                 ]), 20000);
             }
-            Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, $this->filterUser($user), 20000);
         }
     }
 
