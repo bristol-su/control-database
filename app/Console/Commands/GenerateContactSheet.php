@@ -60,9 +60,11 @@ class GenerateContactSheet extends Command
         }
 
         // Get any data to construct the rows in full
-        $sheetRows->each(function($sheetRow) {
+        $counter = 0;
+        $sheetRows->each(function($sheetRow) use ($counter){
             if($sheetRow->generateData() === false){
                 $this->generateSheet = false;
+                $counter++;
             }
         });
 
@@ -78,7 +80,7 @@ class GenerateContactSheet extends Command
         {
             $this->uploadSheet($rawData);
         } else {
-            $this->error('We\'re just collecting some student data. Please try again later.');
+            $this->error('We\'re just collecting some student data ('.$counter.' to collect). Please try again later.');
         }
     }
 
