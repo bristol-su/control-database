@@ -61,7 +61,7 @@ class GenerateContactSheet extends Command
 
         // Get any data to construct the rows in full
         $counter = 0;
-        $sheetRows->each(function($sheetRow) use ($counter){
+        $sheetRows->each(function($sheetRow) use (&$counter){
             if($sheetRow->generateData() === false){
                 $this->generateSheet = false;
                 $counter++;
