@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Twigger\UnionCloud\API\Exception\Request\IncorrectRequestParameterException;
 use Twigger\UnionCloud\API\UnionCloud;
 
 class SaveStudentInCache implements ShouldQueue
@@ -40,6 +41,17 @@ class SaveStudentInCache implements ShouldQueue
 
         $unioncloud = app()->make('Twigger\UnionCloud\API\UnionCloud');
         if(!Cache::has($cacheKey)) {
+            try {
+
+            } catch (IncorrectRequestParameterException $exception)
+            {
+                Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, json_encode([
+                    'forename' => 'N/A',
+                    'surname' => 'N/A',
+                    'email' => 'N/A',
+                    'id' => $this->uid
+                ]), 20000);
+            }
             $user = $unioncloud->users()->getByUID($this->uid)->get()->first();
             Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, $this->filterUser($user), 20000);
         }
