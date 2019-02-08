@@ -20,6 +20,8 @@
         "laravel/passport": "^7.0",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
+        "league/csv": "^9.1",
+        "nao-pon/flysystem-google-drive": "^1.1",
         "predis/predis": "^1.1",
         "twigger/unioncloud": "dev-master",
         "venturecraft/revisionable": "^1.28"
