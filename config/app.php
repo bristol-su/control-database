@@ -228,7 +228,7 @@ return [
 
     ],
 
-    // Define the reference for the position tags
-    'student_tag_category_position_reference' => 'positions'
+    // How regularly should we refresh the contact sheet
+    'contact_sheet_frequency' => env('CONTACT_SHEET_FREQUENCY', 15)
 
 ];
