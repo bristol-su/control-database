@@ -70,7 +70,7 @@ class SheetRow extends SheetRowInterface
         return [
             'Group Status',
             'Group Control ID',
-            'Group Name'.
+            'Group Name',
             'Group Email',
             'Group Accounts',
             'Position',

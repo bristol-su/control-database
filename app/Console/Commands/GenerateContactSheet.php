@@ -7,6 +7,7 @@ use App\Models\Position;
 use App\Packages\ContactSheetUpload\SheetRow;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use League\Csv\Writer;
@@ -86,9 +87,25 @@ class GenerateContactSheet extends Command
 
     public function uploadSheet($data)
     {
-        $csv = Writer::createFromPath(sys_get_temp_dir().'/'.Carbon::now()->format('dmyHi').'contactsheet_generation.csv', 'w+');
+        $filename = sys_get_temp_dir().'/'.Carbon::now()->format('dmyHis').'contactsheet_generation.csv';
+        $csv = Writer::createFromPath($filename, 'w+');
         $csv->insertAll($data);
-        Storage::disk('google')->put('csv-test', $csv->getContent());
+
+        // Get the current file so we can overwrite it later
+        $path = 'Committee Contact Details.csv';
+        foreach(Storage::disk('google')->listContents('/', false) as $doc)
+        {
+            if($doc['mimetype'] === 'application/vnd.google-apps.spreadsheet')
+            {
+                $path = $doc['path'];
+            }
+        }
+
+        if(Storage::disk('google')->put($path, $csv, ['mimetype' => 'application/vnd.google-apps.spreadsheet'])){
+            $this->info('Successfully uploaded to Google Drive.');
+        } else {
+            $this->error('Sorry, an error occurred uploading the sheet to Google Drive');
+        }
     }
 
 }
