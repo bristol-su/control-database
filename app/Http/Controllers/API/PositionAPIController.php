@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Position;
+use App\Models\PositionStudentGroup;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -130,7 +131,7 @@ class PositionAPIController extends Controller
 
     public function getStudents(Position $position)
     {
-        return $position->students;
+        return $position->positionStudentGroups;
     }
 
     /**
@@ -160,7 +161,11 @@ class PositionAPIController extends Controller
         $studentIds = [];
         foreach($request->input('data') as $data)
         {
-            $position->students()->attach( $data['student_id'], ['group_id' => $data['group_id'] ] );
+            $positionStudentGroup = new PositionStudentGroup([
+                'group_id' => $data['group_id'],
+                'student_id' => $data['student_id'],
+            ]);
+            $position->positionStudentGroups()->save( $positionStudentGroup );
             $studentIds[] = $data['student_id'];
         }
 
@@ -191,13 +196,17 @@ class PositionAPIController extends Controller
         ]);
 
         $groupId = (int) $request->input('group_id');
-        $students = $position->students()->where('student_id', $student->id)->wherePivot('group_id', $groupId)->get();
 
-        if(count($students) !== 0 || $position->students()->detach($students))
+        $positionStudentGroups = $position->positionStudentGroups()->where([
+            'student_id' => $student->id,
+            'group_id' => $groupId
+        ])->get()->first();
+
+        if( $positionStudentGroups !== null && $positionStudentGroups->delete())
         {
             return array_merge(
                 array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($position->only(['id', 'name', 'description'])))),
-                ["students" => $students]
+                ["students" => $student]
             );
         }
 

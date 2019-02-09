@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePositionStudentTable extends Migration
+class CreatePositionStudentGroupTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePositionStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('position_student', function (Blueprint $table) {
+        Schema::create('position_student_group', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('student_id');
             $table->unsignedInteger('position_id');
             $table->unsignedInteger('group_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +30,6 @@ class CreatePositionStudentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('position_student');
+        Schema::dropIfExists('position_student_group');
     }
 }

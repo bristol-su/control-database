@@ -14,6 +14,7 @@
     <ul class="treeview-menu">
         <li><a href='{{ backpack_url('student') }}'><i class='fa fa-tag'></i> <span>Students</span></a></li>
         <li><a href='{{ backpack_url('position') }}'><i class='fa fa-tag'></i> <span>Positions</span></a></li>
+        <li><a href='{{ backpack_url('position_student_group') }}'><i class='fa fa-tag'></i> <span>Committee Members</span></a></li>
     </ul>
 </li>
 

@@ -34,7 +34,6 @@ class StudentCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->addColumn([
             'name' => 'uc_uid',
             'label' => 'UnionCloud UID',

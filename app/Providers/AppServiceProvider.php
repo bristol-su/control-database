@@ -27,7 +27,6 @@ class AppServiceProvider extends ServiceProvider
         GroupTag::observe(GroupTagObserver::class);
         Student::observe(StudentObserver::class);
         StudentTag::observe(StudentTagObserver::class);
-        Position::observe(PositionObserver::class);
     }
 
     /**

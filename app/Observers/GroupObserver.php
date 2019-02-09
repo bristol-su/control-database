@@ -23,12 +23,6 @@ class GroupObserver
             {
                 event(new GroupTagged($model, GroupTag::find($groupTagID)));
             }
-        } elseif($relationName === 'students')
-        {
-            foreach($pivotIds as $studentID)
-            {
-                event(new StudentAddedToGroup(Student::findOrFail($studentID), $model));
-            }
         }
     }
 
@@ -40,12 +34,6 @@ class GroupObserver
             foreach($pivotIds as $groupTagID)
             {
                 event(new GroupUntagged($model, GroupTag::find($groupTagID)));
-            }
-        } elseif($relationName === 'students')
-        {
-            foreach($pivotIds as $studentID)
-            {
-                event(new StudentRemovedFromGroup(Student::findOrFail($studentID), $model));
             }
         }
     }

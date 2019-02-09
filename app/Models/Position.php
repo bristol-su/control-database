@@ -39,9 +39,9 @@ class Position extends Model
         'description',
     ];
 
-    public function students()
+    public function positionStudentGroups()
     {
-        return $this->belongsToMany('App\Models\Student')->withPivot('group_id')->withTimestamps();
+        return $this->hasMany('App\Models\PositionStudentGroup');
     }
 
 }

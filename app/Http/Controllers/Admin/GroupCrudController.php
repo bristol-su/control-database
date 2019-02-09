@@ -56,6 +56,7 @@ class GroupCrudController extends CrudController
             'label' => 'Group Email',
             'type' => 'email'
         ]);
+
         $this->crud->addField([
             'name' => 'name',
             'label' => 'Group Name',

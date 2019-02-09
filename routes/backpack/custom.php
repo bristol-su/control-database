@@ -21,6 +21,7 @@ Route::group([
     CRUD::resource('student_tag', 'StudentTagCrudController');
     CRUD::resource('group_tag_category', 'GroupTagCategoryCrudController');
     CRUD::resource('student_tag_category', 'StudentTagCategoryCrudController');
+    CRUD::resource('position_student_group', 'PositionStudentGroupCrudController');
 
     # Permanently delete and restore routes.
     Route::delete('account/{trashed_account}/delete', 'AccountCrudController@delete');
@@ -46,4 +47,11 @@ Route::group([
 
     Route::delete('position/{trashed_position}/delete', 'PositionCrudController@delete');
     Route::post('position/{trashed_position}/restore', 'PositionCrudController@restore');
+
+    Route::delete('position_student_group/{trashed_position_student_group}/delete', function() {
+        \Illuminate\Support\Facades\Log::info('Remove these buttons and change from deactivated to ex or sth');
+    });
+    Route::post('position_student_group/{trashed_position_student_group}/restore', 'PositionStudentGroupCrudController@restore');
+
+
 }); // this should be the absolute last line of this file

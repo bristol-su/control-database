@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\PositionStudentGroup;
 use App\Models\Student;
 use App\Models\Position;
 use Illuminate\Queue\SerializesModels;
@@ -11,18 +12,15 @@ class StudentRemovedFromPosition
 {
     use Dispatchable, SerializesModels;
 
-    public $student;
-
-    public $position;
+    public $psg;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Student $student, Position $position)
+    public function __construct(PositionStudentGroup $psg)
     {
-        $this->student = $student;
-        $this->position = $position;
+        $this->psg = $psg;
     }
 }

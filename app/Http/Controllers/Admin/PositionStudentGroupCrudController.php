@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Position;
+use App\Models\PositionStudentGroup;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\PositionRequest as StoreRequest;
-use App\Http\Requests\PositionRequest as UpdateRequest;
+use App\Http\Requests\PositionStudentGroupRequest as StoreRequest;
+use App\Http\Requests\PositionStudentGroupRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class PositionCrudController
+ * Class PositionStudentGroupCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class PositionCrudController extends CrudController
+class PositionStudentGroupCrudController extends CrudController
 {
     public function setup()
     {
@@ -24,9 +24,9 @@ class PositionCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Position');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/position');
-        $this->crud->setEntityNameStrings('position', 'positions');
+        $this->crud->setModel('App\Models\PositionStudentGroup');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/position_student_group');
+        $this->crud->setEntityNameStrings('Committee Member', 'Committee Members');
         $this->crud->allowAccess('revisions');
         $this->crud->with('revisionHistory');
 
@@ -36,39 +36,65 @@ class PositionCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->addColumn([
-            'name' => 'name',
-            'label' => 'Tag Name',
-            'type' => 'text'
+            'name' => "group",
+            'label' => "Group", // Table column heading
+            'type' => "model_function",
+            'function_name' => 'getGroupName', // the method in your Model
         ]);
         $this->crud->addColumn([
-            'name' => 'description',
-            'label' => 'Tag Description',
-            'type' => 'text'
+            'name' => "position",
+            'label' => "Position", // Table column heading
+            'type' => "model_function",
+            'function_name' => 'getPositionName', // the method in your Model
+        ]);
+        $this->crud->addColumn([
+            'name' => "student",
+            'label' => "Student", // Table column heading
+            'type' => "model_function",
+            'function_name' => 'getStudentName', // the method in your Model
         ]);
 
-        $this->crud->addField([
-            'name' => 'name',
-            'label' => 'Tag Name',
-            'type' => 'text'
-        ]);
-        $this->crud->addField([
-            'name' => 'description',
-            'label' => 'Tag Description',
-            'type' => 'text'
+        $this->crud->addField([  // Select
+            'label' => "Group",
+            'type' => 'select',
+            'name' => 'group_id', // the db column for the foreign key
+            'entity' => 'group', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Group",
         ]);
 
+
+        $this->crud->addField([  // Select
+            'label' => "Student",
+            'type' => 'select',
+            'name' => 'student_id', // the db column for the foreign key
+            'entity' => 'student', // the method that defines the relationship in your Model
+            'attribute' => 'uc_uid', // foreign key attribute that is shown to user
+            'model' => "App\Models\Student",
+        ]);
+
+
+        $this->crud->addField([  // Select
+            'label' => "Position",
+            'type' => 'select',
+            'name' => 'position_id', // the db column for the foreign key
+            'entity' => 'position', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Position",
+        ]);
 
         /*
-        * Buttons allowed are:
-        *
-        * Preview - access 'show'. Always on
-        * Edit = access 'update'. Always on
-        * Deactivate - access 'deactivate'. On in the non filter
-        * Permanently Delete - access 'delete'. On in the trash
-        * Restore - access 'restore' on in trash
-        * Revisions: access 'revisions' on always
-        */
+          * Buttons allowed are:
+          *
+          * Preview - access 'show'. Always on
+          * Edit = access 'update'. Always on
+          * Deactivate - access 'deactivate'. On in the non filter
+          * Permanently Delete - access 'delete'. On in the trash
+          * Restore - access 'restore' on in trash
+          * Revisions: access 'revisions' on always
+          */
         # Allow buttons which are always available:
         $this->crud->allowAccess('show');
         $this->crud->allowAccess('update');
@@ -103,7 +129,9 @@ class PositionCrudController extends CrudController
             });
 
 
-        // add asterisk for fields that are required in PositionRequest
+
+
+        // add asterisk for fields that are required in PositionStudentGroupCrudControllerRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }
@@ -125,17 +153,17 @@ class PositionCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-
-    public function delete(Position $position)
+    
+    public function delete(PositionStudentGroup $positionStudentGroup)
     {
-        return (string) $position->forceDelete();
+        return (string) $positionStudentGroup->forceDelete();
     }
 
-    public function restore(Position $position)
+    public function restore(PositionStudentGroup $positionStudentGroup)
     {
-        if(! $position->restore())
+        if(! $positionStudentGroup->restore())
         {
-            return response('Position not restored', 500);
+            return response('Committee Member not restored', 500);
         }
         return response('', 200);
     }

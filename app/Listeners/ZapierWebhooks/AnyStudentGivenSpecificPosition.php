@@ -12,11 +12,14 @@ class AnyStudentGivenSpecificPosition extends ZapierWebhookListener
 
     protected $student;
 
+    protected $group;
+
     protected function formatForZapier($filter)
     {
         return array_merge(
             array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'uc_uid'])))),
-            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->position->only(['id', 'name', 'description']))))
+            array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->position->only(['id', 'name', 'description'])))),
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($this->position->only(['id', 'name']))))
         );
     }
 
@@ -47,8 +50,9 @@ class AnyStudentGivenSpecificPosition extends ZapierWebhookListener
      */
     public function handle(StudentGivenPosition $event)
     {
-        $this->position = $event->position;
-        $this->student = $event->student;
+        $this->position = $event->psg->position;
+        $this->student = $event->psg->student;
+        $this->group = $event->psg->group;
         $this->trigger();
     }
 }

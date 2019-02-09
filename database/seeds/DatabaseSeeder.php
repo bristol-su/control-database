@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         # Get data from UnionCloud
         $unionCloud = resolve('Twigger\UnionCloud\API\UnionCloud');
-        $uids = $unionCloud->users()->search(['forename' => 'S'])->get()->pluck('uid'); //Search for something with a high number of results
+        $uids = $this->getUids($unionCloud);
         $group_ids = $unionCloud->groups()->getAll()->get()->pluck('id');
 
         # Create a default user
@@ -46,16 +46,24 @@ class DatabaseSeeder extends Seeder
             # Create Students
             for($i=0;$i<7;$i++)
             {
-                $student = factory(App\Models\Student::class)->make(['uc_uid' => array_shift($uids)]);
-                $grp->students()->save($student);
+                if(count($uids) === 0)
+                {
+                    $uids = $this->getUids($unionCloud);
+                }
+                $student = factory(App\Models\Student::class)->create(['uc_uid' => array_shift($uids)]);
 
                 # Tag the students
                 $tags = \App\Models\StudentTag::orderByRaw('RAND()')->take(10)->get();
                 $student->tags()->saveMany($tags);
 
                 # Give the students a position
-                $positions = \App\Models\Position::orderByRaw('RAND()')->take(rand(1, 2))->get();
-                $student->positions()->saveMany($positions, array_fill(0, count($positions), ['group_id' => $grp->id]));
+                $position = \App\Models\Position::orderByRaw('RAND()')->get()->first();
+                $PosStuGrp = factory(App\Models\PositionStudentGroup::class)->create([
+                    'group_id' => $grp->id,
+                    'student_id' => $student->id,
+                    'position_id' => $position->id
+                ]);
+//                $student->positions()->saveMany($positions, array_fill(0, count($positions), ['group_id' => $grp->id]));
             }
 
             # Tag the Group
@@ -69,5 +77,15 @@ class DatabaseSeeder extends Seeder
                 $grp->accounts()->save(factory(App\Models\Account::class)->make(['is_department_code'=>false]));
             }
         }
+    }
+
+    public function getUids(\Twigger\UnionCloud\API\UnionCloud $unionCloud)
+    {
+        $letter = chr(rand(65,90));
+        $uids = [];
+        while(count($uids) === 0) {
+            $uids = $unionCloud->users()->search(['forename' => $letter])->get()->pluck('uid'); //Search for something with a high number of results
+        }
+        return $uids;
     }
 }
