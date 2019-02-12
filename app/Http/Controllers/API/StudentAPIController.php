@@ -240,15 +240,15 @@ class StudentAPIController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | Student -> Position Relationships
+    | Student -> PositionStudentGroups Relationships
     |--------------------------------------------------------------------------
     |
-    | Enable the Many to Many relationship between students and positions
+    | Enable the Many to Many relationship between students and PositionStudentGroups
     |
     */
 
 
-    public function getPositions(Student $student)
+    public function getPositionStudentGroups(Student $student)
     {
         return $student->positionStudentGroups;
     }
@@ -268,7 +268,7 @@ class StudentAPIController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
-    public function linkPositions(Request $request, Student $student)
+    public function linkPositionStudentGroups(Request $request, Student $student)
     {
 
         $request->validate([
@@ -310,7 +310,7 @@ class StudentAPIController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
-    public function deletePositions(Request $request, Student $student, Position $position)
+    public function deletePositionStudentGroups(Request $request, Student $student, Position $position)
     {
 
         $request->validate([

@@ -129,9 +129,9 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::delete('/{student}/groups/{group}', 'StudentAPIController@deleteGroups');
 
         # Positions
-        Route::get('/{student}/positions', 'StudentAPIController@getPositions');
-        Route::post('/{student}/positions', 'StudentAPIController@linkPositions');
-        Route::delete('/{student}/positions/{position}', 'StudentAPIController@deletePositions');
+        Route::get('/{student}/position_student_groups', 'StudentAPIController@getPositionStudentGroups');
+        Route::post('/{student}/position_student_groups', 'StudentAPIController@linkPositionStudentGroups');
+        Route::delete('/{student}/position_student_groups/{position}', 'StudentAPIController@deletePositionStudentGroups');
 
     });
 
