@@ -27,7 +27,7 @@ class GroupRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|min:3',
-            'unioncloud_id' => 'required',
+            'unioncloud_id' => 'sometimes',
             'email' => 'sometimes|nullable|email'
         ];
     }

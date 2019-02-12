@@ -3,33 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentAddedToGroup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentGivenPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/StudentGivenPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentRemovedFromGroup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/StudentRemovedFromPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/StudentRemovedFromPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenAnyPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenAnyPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenSpecificPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenSpecificPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromAnyPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromAnyPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromSpecificPosition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromSpecificPosition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Position.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Position.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/GroupObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/GroupObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/PositionObserver.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/StudentObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/StudentObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_23_213337_create_position_student_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_23_213337_create_position_student_group_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/backpack/base/inc/sidebar_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/backpack/base/inc/sidebar_content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backpack/custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backpack/custom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,10 +22,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="326" column="43" lean-forward="true" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="43" />
+            <state relative-caret-position="420">
+              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -58,7 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Group couldn</find>
       <find>redis</find>
       <find>driver</find>
       <find>position_tag</find>
@@ -88,6 +63,7 @@
       <find>PositionStudentGroups</find>
       <find>count($positionStudentGroups) === 0</find>
       <find>$positionStudentGroups-&gt;exists</find>
+      <find>unioncloud_id</find>
     </findStrings>
     <replaceStrings>
       <replace>Tagged</replace>
@@ -143,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/AccountAPIController.php" />
         <option value="$PROJECT_DIR$/app/Models/StudentTag.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
@@ -151,7 +126,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" />
         <option value="$PROJECT_DIR$/app/Events/StudentRemovedFromGroup.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
         <option value="$PROJECT_DIR$/app/Helpers/helpers.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentTaggedWithASpecificStudentTag.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -161,7 +135,6 @@
         <option value="$PROJECT_DIR$/app/Packages/GoogleDrive/GoogleDriveAdapter.php" />
         <option value="$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Packages/ContactSheetUpload/SheetRow.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
@@ -194,6 +167,9 @@
         <option value="$PROJECT_DIR$/routes/backpack/custom.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
       </list>
     </option>
   </component>
@@ -360,6 +336,19 @@
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Console" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Console" type="462c0819:PsiDirectoryNode" />
+              <item name="Commands" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
@@ -545,12 +534,16 @@
       <workItem from="1548785013266" duration="31000" />
       <workItem from="1549556553972" duration="5467000" />
       <workItem from="1549620741485" duration="18369000" />
-      <workItem from="1549721568573" duration="11107000" />
+      <workItem from="1549721568573" duration="12064000" />
+      <workItem from="1549889158257" duration="8000" />
+      <workItem from="1549908938430" duration="1093000" />
+      <workItem from="1549971468964" duration="386000" />
+      <workItem from="1549973615168" duration="54000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275379000" />
+    <option name="totallyTimeSpent" value="277877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -582,13 +575,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Events/StudentAddedToGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/GroupFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -639,9 +625,7 @@
     <entry file="file://$PROJECT_DIR$/app/Models/GroupTagCategory.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Observers/PositionStudentGroupObserver.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Observers/PositionStudentGroupObserver.php" />
     <entry file="file://$PROJECT_DIR$/app/Events/StudentGivenPosition.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -665,13 +649,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Observers/PositionObserver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Observers/PositionObserver.php" />
     <entry file="file://$PROJECT_DIR$/app/Observers/StudentObserver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -853,16 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="153" column="34" lean-forward="true" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
-          <folding>
-            <element signature="e#46#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -883,7 +851,24 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
-          <caret line="326" column="43" lean-forward="true" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="43" />
+          <caret line="326" column="43" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1041">
+          <caret line="153" column="34" lean-forward="true" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
         </state>
       </provider>
     </entry>

@@ -47,6 +47,8 @@ class GenerateContactSheet extends Command
      */
     public function handle()
     {
+        $this->warn('This feature relies on an implementation of the cache being in place (See PSR-6).');
+        // TODO As above
         $sheetRows = new Collection();
         $positions = Position::all();
 

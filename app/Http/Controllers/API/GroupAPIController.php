@@ -64,7 +64,7 @@ class GroupAPIController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255|min:3|',
-            'unioncloud_id' => 'required'
+            'unioncloud_id' => 'sometimes'
         ]);
 
         $group = new Group($request->only([
