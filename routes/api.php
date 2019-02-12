@@ -187,4 +187,12 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::post('/{student_tag_category}/student_tags', 'StudentTagCategoryAPIController@linkStudentTags');
         Route::delete('/{student_tag_category}/student_tags/{student_tag}', 'StudentTagCategoryAPIController@deleteStudentTags');
     });
+
+    # Position Student Group Endpoints
+    Route::prefix('position_student_groups')->group(function () {
+
+        # Resources
+        Route::get('/', 'PositionStudentGroupAPIController@getAll');
+        Route::get('/{position_student_group}', 'PositionStudentGroupAPIController@get');
+    });
 });

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="133" column="120" selection-start-line="133" selection-start-column="120" selection-end-line="133" selection-end-column="120" />
+            <state relative-caret-position="831">
+              <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -118,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" />
@@ -168,6 +167,7 @@
         <option value="$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_group.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
@@ -388,6 +388,15 @@
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="PositionStudentGroupAPIController.php" type="88303cf5:PhpFileNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Requests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -461,17 +470,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Models" />
+      <recent name="$PROJECT_DIR$/app/Listeners/ZapierWebhooks" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/API" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/API" />
       <recent name="$PROJECT_DIR$/app/Listeners/ZapierWebhooks" />
       <recent name="$PROJECT_DIR$/resources/views/vendor/backpack/crud/buttons" />
       <recent name="$PROJECT_DIR$/app/Events" />
       <recent name="$PROJECT_DIR$/resources/views/vendor/backpack/crud/columns" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/app/Listeners/ZapierWebhooks" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/API" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -543,12 +552,13 @@
       <workItem from="1549908938430" duration="1093000" />
       <workItem from="1549971468964" duration="386000" />
       <workItem from="1549973615168" duration="715000" />
-      <workItem from="1550010572118" duration="124000" />
+      <workItem from="1550010572118" duration="268000" />
+      <workItem from="1550011146725" duration="121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278662000" />
+    <option name="totallyTimeSpent" value="278927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -580,13 +590,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/factories/PositionStudentGroupFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -857,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="270" column="25" selection-start-line="270" selection-start-column="25" selection-end-line="270" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1951">
@@ -874,10 +870,24 @@
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="270" column="25" selection-start-line="270" selection-start-column="25" selection-end-line="270" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="133" column="120" selection-start-line="133" selection-start-column="120" selection-end-line="133" selection-end-column="120" />
+        <state relative-caret-position="831">
+          <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
         </state>
       </provider>
     </entry>
