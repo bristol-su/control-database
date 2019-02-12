@@ -70,7 +70,7 @@ class GroupCrudController extends CrudController
         $this->crud->addField([
             'name' => 'email',
             'label' => 'Group Email Address',
-            'type' => 'email'
+            'type' => 'text'
         ]);
         $this->crud->addField([
             'name' => 'tags', // the method that defines the relationship in your Model

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_group.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_group.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,10 +20,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="495">
+              <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -119,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/StudentTag.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagCategoryAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php" />
@@ -140,7 +137,6 @@
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionCrudController.php" />
         <option value="$PROJECT_DIR$/app/Observers/GroupObserver.php" />
@@ -170,6 +166,8 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/GroupRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_group.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php" />
       </list>
     </option>
   </component>
@@ -424,13 +422,47 @@
             <path>
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
               <item name="backpack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="backpack" type="462c0819:PsiDirectoryNode" />
+              <item name="crud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="backpack" type="462c0819:PsiDirectoryNode" />
+              <item name="crud" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
@@ -538,12 +570,12 @@
       <workItem from="1549889158257" duration="8000" />
       <workItem from="1549908938430" duration="1093000" />
       <workItem from="1549971468964" duration="386000" />
-      <workItem from="1549973615168" duration="54000" />
+      <workItem from="1549973615168" duration="384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277877000" />
+    <option name="totallyTimeSpent" value="278207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -575,12 +607,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/factories/GroupFactory.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/StudentFactory.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/PositionFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -824,13 +850,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/GroupRequest.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="152" selection-start-line="152" selection-end-line="176" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -869,6 +888,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_student_search.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vendor/backpack/crud/fields/unioncloud_group.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GroupCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
         </state>
       </provider>
     </entry>

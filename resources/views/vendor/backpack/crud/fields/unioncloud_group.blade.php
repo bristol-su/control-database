@@ -68,7 +68,10 @@
                 .done(function(data) {
                     try {
                         options = [];
-                        parsedData = JSON.parse(data);
+                        options.push($('<option>', {
+                            value: '',
+                            text : 'No Group Selected'
+                        }));                        parsedData = JSON.parse(data);
                         for(i=0;i<parsedData.length;i++){
                             options.push($('<option>', {
                                 value: parsedData[i].id,
@@ -96,7 +99,7 @@
             }
 
             $('#uc_grp_sel_{!! $field['name'] !!}').select2({
-                placeholder: 'Loading groups...'
+                placeholder: 'No group selected.'
             });
             reloadGroups();
         });
