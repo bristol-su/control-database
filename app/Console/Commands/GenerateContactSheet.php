@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\Group;
 use App\Models\Position;
+use App\Models\PositionStudentGroup;
+use App\Models\Student;
 use App\Packages\ContactSheetUpload\SheetRow;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -50,16 +52,15 @@ class GenerateContactSheet extends Command
         $this->warn('This feature relies on an implementation of the cache being in place (See PSR-6).');
         // TODO As above
         $sheetRows = new Collection();
-        $positions = Position::all();
+        $psgs = PositionStudentGroup::all();
 
         // Gather together each of the sheet rows
-        foreach($positions as $position)
+        foreach($psgs as $psg)
         {
-            foreach($position->students as $student)
-            {
-                $group = Group::withTrashed()->where('id', $student->pivot->group_id)->get()->first();
-                $sheetRows[] = new SheetRow($position, $student, $group);
-            }
+            $group = Group::withTrashed()->where('id', $psg->group_id)->get()->first();
+            $position = Position::find($psg->position_id);
+            $student = Student::find($psg->student_id);
+            $sheetRows[] = new SheetRow($position, $student, $group);
         }
 
         // Get any data to construct the rows in full
