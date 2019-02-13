@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Group;
+use App\Models\Position;
 use App\Models\PositionStudentGroup;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -37,18 +38,25 @@ class PositionStudentGroupAPIController extends Controller
      */
     public function getAll()
     {
-        return PositionStudentGroup::all();
+        $psgs = PositionStudentGroup::all();
+        foreach($psgs as $psg) {
+            $psg->group = Group::find($psg->group_id);
+            $psg->position = Position::find($psg->position_id);
+        }
+        return $psgs;
     }
 
     /**
      * Get an account by ID. Route model binding will pass the account
      *
-     * @param Account $account
+     * @param PositionStudentGroup $account
      *
-     * @return Account
+     * @return PositionStudentGroup
      */
     public function get(PositionStudentGroup $positionStudentGroup)
     {
+        $positionStudentGroup->group = Group::find($positionStudentGroup->group_id);
+        $positionStudentGroup->position = Position::find($positionStudentGroup->position_id);
         return $positionStudentGroup;
     }
 

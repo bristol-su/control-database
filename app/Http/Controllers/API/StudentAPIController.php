@@ -250,7 +250,12 @@ class StudentAPIController extends Controller
 
     public function getPositionStudentGroups(Student $student)
     {
-        return $student->positionStudentGroups;
+        $positionStudentGroups = $student->positionStudentGroups;
+        foreach($positionStudentGroups as $psg) {
+            $psg->group = Group::find($psg->group_id);
+            $psg->position = Position::find($psg->position_id);
+        }
+        return $positionStudentGroups;
     }
 
     /**
