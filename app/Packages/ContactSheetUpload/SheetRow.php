@@ -16,7 +16,7 @@ use App\Models\Student;
 use Illuminate\Support\Facades\Cache;
 use Twigger\UnionCloud\API\UnionCloud;
 
-class SheetRow extends SheetRowInterface
+class SheetRow extends BaseSheetRow
 {
 
     protected $unionCloudStudent;

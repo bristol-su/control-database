@@ -13,7 +13,7 @@ use App\Models\Group;
 use App\Models\Position;
 use App\Models\Student;
 
-abstract class SheetRowInterface
+abstract class BaseSheetRow
 {
 
     /**
@@ -50,6 +50,15 @@ abstract class SheetRowInterface
     public function getElements()
     {
         return $this->elements;
+    }
+
+    public function __get($key) {
+        if(array_key_exists($key, $this->elements))
+        {
+            return $this->elements[$key];
+        }
+
+        return;
     }
 
     abstract public static function getHeaders();
