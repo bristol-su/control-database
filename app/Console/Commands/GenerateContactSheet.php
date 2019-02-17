@@ -73,7 +73,9 @@ class GenerateContactSheet extends Command
         });
 
         // Order the sheet rows
-        $sheetRows = $sheetRows->sortBy('group_id');
+        $sheetRows = $sheetRows->sortBy(function($sheetRow) {
+            return $sheetRow->group_id;
+        });
 
         // Create the raw data
         $rawData = [];
@@ -82,7 +84,7 @@ class GenerateContactSheet extends Command
         {
             $rawData[] = $sheetRow->getElements();
         }
-        
+
         if($this->generateSheet)
         {
             $this->uploadSheet($rawData);
