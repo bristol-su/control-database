@@ -57,8 +57,7 @@ abstract class BaseSheetRow
         {
             return $this->elements[$key];
         }
-
-        return false;
+        return;
     }
 
     abstract public static function getHeaders();
