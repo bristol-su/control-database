@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateGroupSheet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Packages/GroupSheetUpload/BaseSheetRow.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Packages/GroupSheetUpload/SheetRow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/control-database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/control-database.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="16" lean-forward="true" selection-end-line="55" selection-end-column="65" />
+            <state relative-caret-position="240">
+              <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -89,11 +81,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env.example">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+            <state relative-caret-position="780">
+              <caret line="52" selection-start-line="52" selection-end-line="55" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -190,7 +191,6 @@
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/app/Packages/GoogleDrive/GoogleDriveAdapter.php" />
         <option value="$PROJECT_DIR$/app/Providers/GoogleDriveServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" />
         <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentCrudController.php" />
@@ -238,6 +238,7 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateGroupSheet.php" />
         <option value="$PROJECT_DIR$/.env.example" />
+        <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
       </list>
     </option>
   </component>
@@ -424,23 +425,6 @@
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
-              <item name="GenerateGroupSheet.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -467,12 +451,6 @@
               <item name="Packages" type="462c0819:PsiDirectoryNode" />
               <item name="GroupSheetUpload" type="462c0819:PsiDirectoryNode" />
               <item name="SheetRow.php" type="88303cf5:PhpFileNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -583,12 +561,12 @@
       <workItem from="1550506700262" duration="494000" />
       <workItem from="1550516685557" duration="990000" />
       <workItem from="1550611149054" duration="1511000" />
-      <workItem from="1550664368347" duration="856000" />
+      <workItem from="1550664368347" duration="1238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292005000" />
+    <option name="totallyTimeSpent" value="292387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -620,7 +598,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../app/Http/Controllers/Admin/StudentCrudController.php" />
     <entry file="file://$PROJECT_DIR$/../app/Http/Requests/PositionStudentGroupRequest.php" />
     <entry file="file://$PROJECT_DIR$/../storage/logs/laravel-2019-02-09.log" />
     <entry file="file://$PROJECT_DIR$/../app/Http/Requests/GroupRequest.php" />
@@ -710,17 +687,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="16" lean-forward="true" selection-end-line="55" selection-end-column="65" />
+        <state relative-caret-position="780">
+          <caret line="52" selection-start-line="52" selection-end-line="55" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+        <state relative-caret-position="240">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\GenerateContactSheet;
+use App\Console\Commands\GenerateGroupSheet;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,12 +26,19 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //
         $schedule->command(GenerateContactSheet::class)
-            ->everyFifteenMinutes()
+            ->cron('*/'.config('app.contact_sheet_frequency').' * * * *')
             ->evenInMaintenanceMode()
             ->environments(['production']);
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+
+        $schedule->command(GenerateGroupSheet::class)
+            ->cron('*/'.config('app.group_sheet_frequency').' * * * *')
+            ->evenInMaintenanceMode()
+            ->environments(['production']);
+
+
     }
 
     /**
