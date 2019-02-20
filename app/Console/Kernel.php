@@ -26,15 +26,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        // TODO Ensure this relies on the .env file
         $schedule->command(GenerateContactSheet::class)
-            ->cron('*/'.config('app.contact_sheet_frequency').' * * * *')
+            ->everyFifteenMinutes()
             ->evenInMaintenanceMode()
             ->environments(['production']);
 
 
         $schedule->command(GenerateGroupSheet::class)
-            ->cron('*/'.config('app.group_sheet_frequency').' * * * *')
+            ->everyFifteenMinutes()
             ->evenInMaintenanceMode()
             ->environments(['production']);
 
