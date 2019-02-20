@@ -28,6 +28,7 @@ class StudentTagCategoryCrudController extends CrudController
         $this->crud->setModel('App\Models\StudentTagCategory');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/student_tag_category');
         $this->crud->setEntityNameStrings('Student Tag Category', 'Student Tag Categories');
+        $this->crud->enableExportButtons();
 
         /*
         |--------------------------------------------------------------------------

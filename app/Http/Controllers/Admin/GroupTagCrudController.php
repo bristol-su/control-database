@@ -30,6 +30,7 @@ class GroupTagCrudController extends CrudController
         $this->crud->setModel('App\Models\GroupTag');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/group_tag');
         $this->crud->setEntityNameStrings('group Tag', 'group Tags');
+        $this->crud->enableExportButtons();
 
         /*
         |--------------------------------------------------------------------------

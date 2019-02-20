@@ -29,6 +29,7 @@ class PositionStudentGroupCrudController extends CrudController
         $this->crud->setEntityNameStrings('Committee Member', 'Committee Members');
         $this->crud->allowAccess('revisions');
         $this->crud->with('revisionHistory');
+        $this->crud->enableExportButtons();
 
         /*
         |--------------------------------------------------------------------------
@@ -38,22 +39,30 @@ class PositionStudentGroupCrudController extends CrudController
 
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->addColumn([
-            'name' => "group",
+            'name' => "group_id",
             'label' => "Group", // Table column heading
-            'type' => "model_function",
-            'function_name' => 'getGroupName', // the method in your Model
+            'type' => "select",
+            'entity' => 'group',
+            'attribute' => 'name',
+            'model' => 'App\Models\Group',
         ]);
+
         $this->crud->addColumn([
-            'name' => "position",
+            'name' => "position_id",
             'label' => "Position", // Table column heading
-            'type' => "model_function",
-            'function_name' => 'getPositionName', // the method in your Model
+            'type' => "select",
+            'entity' => 'position',
+            'attribute' => 'name',
+            'model' => 'App\Models\Position',
         ]);
+
         $this->crud->addColumn([
-            'name' => "student",
+            'name' => "student_id",
             'label' => "Student", // Table column heading
-            'type' => "model_function",
-            'function_name' => 'getStudentName', // the method in your Model
+            'type' => "select",
+            'entity' => 'student',
+            'attribute' => 'uc_uid',
+            'model' => 'App\Models\Student',
         ]);
 
         $this->crud->addField([  // Select

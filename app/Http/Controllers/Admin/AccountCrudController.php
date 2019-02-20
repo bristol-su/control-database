@@ -27,6 +27,7 @@ class AccountCrudController extends CrudController
         $this->crud->setModel('App\Models\Account');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/account');
         $this->crud->setEntityNameStrings('account', 'accounts');
+        $this->crud->enableExportButtons();$this->crud->enableExportButtons();
 
         /*
         |--------------------------------------------------------------------------

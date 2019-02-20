@@ -34,6 +34,7 @@ class GroupCrudController extends CrudController
         $this->crud->allowAccess('details_row');
         $this->crud->enableDetailsRow();
         $this->crud->with('revisionHistory');
+        $this->crud->enableExportButtons();
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration

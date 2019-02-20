@@ -29,6 +29,7 @@ class PositionCrudController extends CrudController
         $this->crud->setEntityNameStrings('position', 'positions');
         $this->crud->allowAccess('revisions');
         $this->crud->with('revisionHistory');
+        $this->crud->enableExportButtons();
 
         /*
         |--------------------------------------------------------------------------
