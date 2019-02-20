@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Group;
 use App\Models\GroupTag;
+use App\Models\Position;
+use App\Models\PositionStudentGroup;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -300,5 +302,30 @@ class GroupAPIController extends Controller
         return response('Account wasn\'t assigned to group', 200);
 
     }
+
+    /*
+|--------------------------------------------------------------------------
+| Student -> PositionStudentGroups Relationships
+|--------------------------------------------------------------------------
+|
+| Enable the Many to Many relationship between students and PositionStudentGroups
+|
+*/
+
+
+    public function getPositionStudentGroups(Group $group)
+    {
+        $positionStudentGroups = $group->positionStudentGroups;
+
+        foreach($positionStudentGroups as $psg) {
+            $psg->student = Student::find($psg->student_id);
+            $psg->position = Position::find($psg->position_id);
+        }
+
+        return $positionStudentGroups;
+    }
+
+
+
 }
 

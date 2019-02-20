@@ -69,6 +69,9 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::post('/{group}/students', 'GroupAPIController@linkStudents');
         Route::delete('/{group}/students/{student}', 'GroupAPIController@deleteStudents');
 
+        # Positions (Committee Members)
+        Route::get('/{group}/position_student_groups', 'GroupAPIController@getPositionStudentGroups');
+
     });
 
     # GroupTag Endpoints
@@ -105,6 +108,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::get('/{group_tag_category}/group_tags', 'GroupTagCategoryAPIController@getGroupTags');
         Route::post('/{group_tag_category}/group_tags', 'GroupTagCategoryAPIController@linkGroupTags');
         Route::delete('/{group_tag_category}/group_tags/{group_tag}', 'GroupTagCategoryAPIController@deleteGroupTags');
+
     });
 
     # Student Endpoints
