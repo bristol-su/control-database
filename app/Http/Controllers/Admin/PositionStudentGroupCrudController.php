@@ -49,11 +49,17 @@ class PositionStudentGroupCrudController extends CrudController
 
         $this->crud->addColumn([
             'name' => "position_id",
-            'label' => "Position", // Table column heading
+            'label' => "Position Type", // Table column heading
             'type' => "select",
             'entity' => 'position',
             'attribute' => 'name',
             'model' => 'App\Models\Position',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'position_name',
+            'label' => 'Position Name',
+            'type' => 'text'
         ]);
 
         $this->crud->addColumn([
@@ -64,6 +70,7 @@ class PositionStudentGroupCrudController extends CrudController
             'attribute' => 'uc_uid',
             'model' => 'App\Models\Student',
         ]);
+
 
         $this->crud->addField([  // Select
             'label' => "Group",
@@ -84,6 +91,11 @@ class PositionStudentGroupCrudController extends CrudController
             'model' => "App\Models\Student",
         ]);
 
+        $this->crud->addField([
+            'name' => 'position_name',
+            'label' => 'Position Name',
+            'type' => 'text'
+        ]);
 
         $this->crud->addField([  // Select
             'label' => "Position",

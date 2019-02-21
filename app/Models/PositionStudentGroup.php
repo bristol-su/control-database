@@ -27,7 +27,8 @@ class PositionStudentGroup extends Model
     protected $fillable = [
         'group_id',
         'student_id',
-        'position_id'
+        'position_id',
+        'position_name'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -40,21 +41,7 @@ class PositionStudentGroup extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    
-    public function getGroupName()
-    {
-        return $this->group->name;
-    }
 
-    public function getStudentName()
-    {
-        return $this->student->uc_uid;
-    }
-
-    public function getPositionName()
-    {
-        return $this->position->name;
-    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
