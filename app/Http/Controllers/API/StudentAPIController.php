@@ -143,7 +143,7 @@ class StudentAPIController extends Controller
 
     public function getStudentTags(Student $student)
     {
-        return $student->tags;
+        return $student->tags()->with('category')->get();
     }
 
     public function linkStudentTags(Request $request, Student $student)
