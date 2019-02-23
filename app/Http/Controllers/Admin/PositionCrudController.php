@@ -39,23 +39,23 @@ class PositionCrudController extends CrudController
 
         $this->crud->addColumn([
             'name' => 'name',
-            'label' => 'Tag Name',
+            'label' => 'Position Name',
             'type' => 'text'
         ]);
         $this->crud->addColumn([
             'name' => 'description',
-            'label' => 'Tag Description',
+            'label' => 'Position Description',
             'type' => 'text'
         ]);
 
         $this->crud->addField([
             'name' => 'name',
-            'label' => 'Tag Name',
+            'label' => 'Position Name',
             'type' => 'text'
         ]);
         $this->crud->addField([
             'name' => 'description',
-            'label' => 'Tag Description',
+            'label' => 'Position Description',
             'type' => 'text'
         ]);
 
