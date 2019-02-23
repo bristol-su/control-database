@@ -149,7 +149,7 @@ class GroupAPIController extends Controller
 
     public function getGroupTags(Group $group)
     {
-        return $group->tags()->with('category')->get();
+        return $group->tags;
     }
 
     public function linkGroupTags(Request $request, Group $group)

@@ -36,7 +36,7 @@ class Student extends Model
     */
     public function tags()
     {
-        return $this->belongsToMany('App\Models\StudentTag')->withPivot('data')->withTimestamps();
+        return $this->belongsToMany('App\Models\StudentTag')->withPivot('data')->withTimestamps()->with('category');
     }
 
     public function positionStudentGroups()
