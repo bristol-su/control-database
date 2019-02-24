@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Account;
 use App\Models\Group;
 use App\Models\Position;
 use App\Models\PositionStudentGroup;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 
 class PositionStudentGroupAPIController extends Controller
@@ -39,7 +37,7 @@ class PositionStudentGroupAPIController extends Controller
     public function getAll()
     {
         $psgs = PositionStudentGroup::all();
-        foreach($psgs as $psg) {
+        foreach ($psgs as $psg) {
             $psg->group = Group::find($psg->group_id);
             $psg->position = Position::find($psg->position_id);
         }
@@ -49,7 +47,7 @@ class PositionStudentGroupAPIController extends Controller
     /**
      * Get an account by ID. Route model binding will pass the account
      *
-     * @param PositionStudentGroup $account
+     * @param PositionStudentGroup $positionStudentGroup
      *
      * @return PositionStudentGroup
      */
@@ -58,6 +56,37 @@ class PositionStudentGroupAPIController extends Controller
         $positionStudentGroup->group = Group::find($positionStudentGroup->group_id);
         $positionStudentGroup->position = Position::find($positionStudentGroup->position_id);
         return $positionStudentGroup;
+    }
+
+    /**
+     * Create an position student group
+     *
+     * @param Request $request
+     *
+     * @return PositionStudentGroup
+     */
+    public function create(Request $request)
+    {
+        $request->validate([
+            'student_id' => 'exists:students,id',
+            'position_id' => 'exists:positions,id',
+            'position_name' => 'sometimes|string',
+            'group_id' => 'exists:groups,id',
+        ]);
+
+        $positionStudentGroup = new PositionStudentGroup($request->only([
+            'student_id',
+            'position_id',
+            'position_name',
+            'group_id',
+        ]));
+
+        if ($positionStudentGroup->save()) {
+            return $positionStudentGroup;
+        }
+        return response()->json([
+            'error' => 'Committee Role not saved'
+        ], 500);
     }
 
 }
