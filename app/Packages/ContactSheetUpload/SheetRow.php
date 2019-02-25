@@ -10,21 +10,36 @@ namespace App\Packages\ContactSheetUpload;
 
 
 use App\Jobs\SaveStudentInCache;
-use App\Models\Group;
-use App\Models\Position;
-use App\Models\Student;
 use Illuminate\Support\Facades\Cache;
-use Twigger\UnionCloud\API\UnionCloud;
 
 class SheetRow extends BaseSheetRow
 {
 
     protected $unionCloudStudent;
 
+    public static function getHeaders()
+    {
+        return [
+            'Group Status',
+            'Group Control ID',
+            'Group Name',
+            'Group Email',
+            'Group UnionCloud ID',
+            'Group Accounts',
+            'Role',
+            'Position Title',
+            'UnionCloud UID',
+            'Forename',
+            'Surname',
+            'Student ID',
+            'Email'
+        ];
+    }
+
     public function generateData()
     {
         $unionCloudStudent = $this->getUnionCloudStudent($this->student->uc_uid);
-        if($unionCloudStudent === false) {
+        if ($unionCloudStudent === false) {
             return false;
         }
 
@@ -37,23 +52,22 @@ class SheetRow extends BaseSheetRow
             'group_email' => $this->group->email,
             'group_unioncloud_id' => $this->group->unioncloud_id,
             'group_accounts' => implode(', ', $this->group->accounts->pluck('code')->toArray()),
-            'position' => $this->position->name,
+            'role' => $this->position->name,
+            'position_title' => ($this->positionStudentGroup->position_name === '' ? $this->position->name : $this->positionStudentGroup->position_name),
             'uid' => $this->student->uc_uid,
             'forename' => $this->unionCloudStudent->forename,
             'surname' => $this->unionCloudStudent->surname,
             'student_id' => $this->unionCloudStudent->id,
             'email' => $this->unionCloudStudent->email
         ];
-
         return true;
     }
 
     private function getUnionCloudStudent($uid)
     {
 
-        if(Cache::has('command:contactsheet:unioncloud:uid.'.$uid))
-        {
-            return json_decode(Cache::get('command:contactsheet:unioncloud:uid.'.$uid));
+        if (Cache::has('command:contactsheet:unioncloud:uid.' . $uid)) {
+            return json_decode(Cache::get('command:contactsheet:unioncloud:uid.' . $uid));
         }
         // Dispatch job to collect information and save it in the cache
         SaveStudentInCache::dispatch($uid);
@@ -63,25 +77,7 @@ class SheetRow extends BaseSheetRow
 
     public function getGroupStatus()
     {
-        return ($this->group->trashed()?'Deactive':'Active');
-    }
-
-    public static function getHeaders()
-    {
-        return [
-            'Group Status',
-            'Group Control ID',
-            'Group Name',
-            'Group Email',
-            'Group UnionCloud ID',
-            'Group Accounts',
-            'Position',
-            'UnionCloud UID',
-            'Forename',
-            'Surname',
-            'Student ID',
-            'Email'
-        ];
+        return ($this->group->trashed() ? 'Deactive' : 'Active');
     }
 
 }

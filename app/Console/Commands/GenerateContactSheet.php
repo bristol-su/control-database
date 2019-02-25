@@ -9,7 +9,6 @@ use App\Models\Student;
 use App\Packages\ContactSheetUpload\SheetRow;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use League\Csv\Writer;
@@ -55,54 +54,51 @@ class GenerateContactSheet extends Command
         $psgs = PositionStudentGroup::all();
 
         // Gather together each of the sheet rows
-        foreach($psgs as $psg)
-        {
+        foreach ($psgs as $psg) {
             $group = Group::withTrashed()->where('id', $psg->group_id)->get()->first();
             $position = Position::find($psg->position_id);
             $student = Student::find($psg->student_id);
-            $sheetRows[] = new SheetRow($position, $student, $group);
+            $sheetRows[] = new SheetRow($position, $student, $group, $psg);
         }
 
         // Get any data to construct the rows in full
         $counter = 0;
-        $sheetRows->each(function($sheetRow) use (&$counter){
-            if($sheetRow->generateData() === false){
+        $sheetRows->each(function ($sheetRow) use (&$counter) {
+            if ($sheetRow->generateData() === false) {
                 $this->generateSheet = false;
                 $counter++;
             }
+            return $sheetRow;
         });
-
         // Order the sheet rows
-        $sheetRows = $sheetRows->sortBy(function($sheetRow) {
+        $sheetRows = $sheetRows->sortBy(function ($sheetRow) {
             return $sheetRow->group_name;
         });
 
         // Create the raw data
         $rawData = [];
         $rawData[] = SheetRow::getHeaders();
-        foreach($sheetRows as $sheetRow)
-        {
+        foreach ($sheetRows as $sheetRow) {
             $rawData[] = $sheetRow->getElements();
         }
 
-        if($this->generateSheet)
-        {
+        if ($this->generateSheet) {
             $this->uploadSheet($rawData);
         } else {
-            $this->error('We\'re just collecting some student data ('.$counter.' to collect). Please try again later.');
+            $this->error('We\'re just collecting some student data (' . $counter . ' to collect). Please try again later.');
         }
     }
 
     public function uploadSheet($data)
     {
-        $filename = sys_get_temp_dir().'/'.Carbon::now()->format('dmyHis').'contactsheet_generation.csv';
+        $filename = sys_get_temp_dir() . '/' . Carbon::now()->format('dmyHis') . 'contactsheet_generation.csv';
         $csv = Writer::createFromPath($filename, 'w+');
         $csv->insertAll($data);
 
         // Get the current file so we can overwrite it later
         $path = config('app.contact_sheet_drive_id');
 
-        if(Storage::disk('google')->put($path, $csv, ['mimetype' => 'application/vnd.google-apps.spreadsheet'])){
+        if (Storage::disk('google')->put($path, $csv, ['mimetype' => 'application/vnd.google-apps.spreadsheet'])) {
             $this->info('Successfully uploaded to Google Drive.');
         } else {
             $this->error('Sorry, an error occurred uploading the sheet to Google Drive');

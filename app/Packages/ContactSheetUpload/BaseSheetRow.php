@@ -11,7 +11,9 @@ namespace App\Packages\ContactSheetUpload;
 
 use App\Models\Group;
 use App\Models\Position;
+use App\Models\PositionStudentGroup;
 use App\Models\Student;
+use Mockery\Exception;
 
 abstract class BaseSheetRow
 {
@@ -31,13 +33,19 @@ abstract class BaseSheetRow
      */
     protected $group;
 
+    /**
+     * @var PositionStudentGroup
+     */
+    protected $positionStudentGroup;
+
     protected $elements;
 
-    public function __construct(Position $position, Student $student, Group $group)
+    public function __construct(Position $position, Student $student, Group $group, PositionStudentGroup $psg)
     {
         $this->position = $position;
         $this->student = $student;
         $this->group = $group;
+        $this->positionStudentGroup = $psg;
     }
 
     abstract public function generateData();
@@ -53,11 +61,16 @@ abstract class BaseSheetRow
     }
 
     public function __get($key) {
-        if(array_key_exists($key, $this->elements))
-        {
-            return $this->elements[$key];
+        try {
+
+            if(array_key_exists($key, $this->elements))
+            {
+                return $this->elements[$key];
+            }
+            return;
+        } catch (\Exception $e) {
+            dd($this);
         }
-        return;
     }
 
     abstract public static function getHeaders();
