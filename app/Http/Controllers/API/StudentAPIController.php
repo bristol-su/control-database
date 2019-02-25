@@ -68,8 +68,7 @@ class StudentAPIController extends Controller
             'uc_uid'
         ]));
 
-        if($student->save())
-        {
+        if ($student->save()) {
             return $student;
         }
         return response()->json([
@@ -109,8 +108,7 @@ class StudentAPIController extends Controller
     {
         try {
             $student->delete();
-        } catch (\Exception $e)
-        {
+        } catch (\Exception $e) {
             return response('Student couldn\'t be deleted', 500);
         }
 
@@ -127,6 +125,8 @@ class StudentAPIController extends Controller
     public function search(Request $request)
     {
         $students = Student::where('uc_uid', $request->input('uc_uid'))->get();
+
+        abort_if(count($students) === 0, 404, 'No students found');
 
         return $students;
     }
@@ -154,25 +154,26 @@ class StudentAPIController extends Controller
             'id.*' => 'exists:student_tags,id',
             'data' => 'sometimes|array'
         ]);
-        if($request->has('data'))
-        {
+        if ($request->has('data')) {
             $attachArray = [];
-            for($i=0;$i<count($request->input('id'));$i++)
-            {
-                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i])?$request->input('data')[$i]:null)];
+            for ($i = 0; $i < count($request->input('id')); $i++) {
+                $attachArray[$request->input('id')[$i]] = ['data' => (isset($request->input('data')[$i]) ? $request->input('data')[$i] : null)];
             }
             $student->tags()->attach($attachArray);
-        } else
-        {
-            $student->tags()->attach( $request->input('id'));
+        } else {
+            $student->tags()->attach($request->input('id'));
         }
 
-        $studentTags = StudentTag::find($request->input('id'))->each(function($studentTag) {
-            return array_flip(array_map(function($u){ return 'student_tags_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description']))));
+        $studentTags = StudentTag::find($request->input('id'))->each(function ($studentTag) {
+            return array_flip(array_map(function ($u) {
+                return 'student_tags_' . $u;
+            }, array_flip($studentTag->only(['id', 'name', 'description']))));
         });
 
         return array_merge(
-            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            array_flip(array_map(function ($u) {
+                return 'student_' . $u;
+            }, array_flip($student->only(['id', 'uc_uid'])))),
             ["student_tags" => $studentTags]
         );
     }
@@ -180,11 +181,14 @@ class StudentAPIController extends Controller
     public function deleteStudentTags(Request $request, Student $student, StudentTag $studentTag)
     {
 
-        if($student->tags()->detach( $studentTag ))
-        {
+        if ($student->tags()->detach($studentTag)) {
             return array_merge(
-                array_flip(array_map(function($u){ return 'tag_'.$u; }, array_flip($studentTag->only(['id', 'name', 'description'])))),
-                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
+                array_flip(array_map(function ($u) {
+                    return 'tag_' . $u;
+                }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function ($u) {
+                    return 'student_' . $u;
+                }, array_flip($student->only(['id', 'uc_uid']))))
             );
         }
         return response('Student couldn\'t be detached', 500);
@@ -199,7 +203,7 @@ class StudentAPIController extends Controller
     | Enable the Many to Many relationship between students and groups
     |
     */
-    
+
     public function getGroups(Student $student)
     {
         return $student->groups;
@@ -213,14 +217,18 @@ class StudentAPIController extends Controller
             'id.*' => 'exists:groups,id'
         ]);
 
-        $student->groups()->attach( $request->input('id') );
+        $student->groups()->attach($request->input('id'));
 
-        $groups = Group::find($request->input('id'))->each(function($group) {
-            return array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email']))));
+        $groups = Group::find($request->input('id'))->each(function ($group) {
+            return array_flip(array_map(function ($u) {
+                return 'group_' . $u;
+            }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email']))));
         });
 
         return array_merge(
-            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            array_flip(array_map(function ($u) {
+                return 'student_' . $u;
+            }, array_flip($student->only(['id', 'uc_uid'])))),
             ["groups" => $groups]
         );
     }
@@ -228,11 +236,14 @@ class StudentAPIController extends Controller
     public function deleteGroups(Student $student, Group $group)
     {
 
-        if($student->groups()->detach( $group ))
-        {
+        if ($student->groups()->detach($group)) {
             return array_merge(
-                array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email'])))),
-                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid']))))
+                array_flip(array_map(function ($u) {
+                    return 'group_' . $u;
+                }, array_flip($group->only(['id', 'name', 'unioncloud_id', 'email'])))),
+                array_flip(array_map(function ($u) {
+                    return 'student_' . $u;
+                }, array_flip($student->only(['id', 'uc_uid']))))
             );
         }
         return response('Group couldn\'t be removed from the student', 500);
@@ -251,7 +262,7 @@ class StudentAPIController extends Controller
     public function getPositionStudentGroups(Student $student)
     {
         $positionStudentGroups = $student->positionStudentGroups;
-        foreach($positionStudentGroups as $psg) {
+        foreach ($positionStudentGroups as $psg) {
             $psg->group = Group::find($psg->group_id);
             $psg->position = Position::find($psg->position_id);
         }
@@ -283,22 +294,25 @@ class StudentAPIController extends Controller
         ]);
 
         $positionIds = [];
-        foreach($request->input('data') as $data)
-        {
+        foreach ($request->input('data') as $data) {
             $positionStudentGroup = new PositionStudentGroup([
                 'group_id' => $data['group_id'],
                 'position_id' => $data['position_id'],
             ]);
-            $student->positionStudentGroups()->save( $positionStudentGroup );
+            $student->positionStudentGroups()->save($positionStudentGroup);
             $positionIds[] = $data['position_id'];
         }
 
-        $positions = Position::find($positionIds)->each(function($position) {
-            return array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($position->only(['id', 'name', 'description']))));
+        $positions = Position::find($positionIds)->each(function ($position) {
+            return array_flip(array_map(function ($u) {
+                return 'position_' . $u;
+            }, array_flip($position->only(['id', 'name', 'description']))));
         });
 
         return array_merge(
-            array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+            array_flip(array_map(function ($u) {
+                return 'student_' . $u;
+            }, array_flip($student->only(['id', 'uc_uid'])))),
             ["positions" => $positions]
         );
 
@@ -322,16 +336,18 @@ class StudentAPIController extends Controller
             'group_id' => 'required|exists:groups,id',
         ]);
 
-        $groupId = (int) $request->input('group_id');
+        $groupId = (int)$request->input('group_id');
 
         $positionStudentGroups = $student->positionStudentGroups()->where([
             'position_id' => $position->id,
             'group_id' => $groupId
         ])->get()->first();
 
-        if( $positionStudentGroups !== null && $positionStudentGroups->delete()) {
+        if ($positionStudentGroups !== null && $positionStudentGroups->delete()) {
             return array_merge(
-                array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($student->only(['id', 'uc_uid'])))),
+                array_flip(array_map(function ($u) {
+                    return 'student_' . $u;
+                }, array_flip($student->only(['id', 'uc_uid'])))),
                 ["positions" => $positionStudentGroups]
             );
         }
