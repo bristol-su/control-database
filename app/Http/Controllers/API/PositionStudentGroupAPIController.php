@@ -124,7 +124,7 @@ class PositionStudentGroupAPIController extends Controller
      */
     public function delete(Request $request, $positionStudentGroupID)
     {
-        abort_if(PositionStudentGroup::destroy($positionStudentGroupID), 500, 'Could not delete committee role');
+        abort_if(!PositionStudentGroup::destroy($positionStudentGroupID), 500, 'Could not delete committee role');
 
         return response('', 200);
     }
