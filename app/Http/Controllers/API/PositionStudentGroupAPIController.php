@@ -89,4 +89,30 @@ class PositionStudentGroupAPIController extends Controller
         ], 500);
     }
 
+    /**
+     * Update an position student group
+     *
+     * @param Request $request
+     *
+     * @return PositionStudentGroup
+     */
+    public function update(PositionStudentGroup $positionStudentGroup, Request $request)
+    {
+        $request->validate([
+            'student_id' => 'exists:students,id',
+            'position_id' => 'exists:positions,id',
+            'position_name' => 'sometimes|string',
+            'group_id' => 'exists:groups,id',
+        ]);
+
+        $positionStudentGroup->fill($request->input());
+
+        if ($positionStudentGroup->save()) {
+            return $positionStudentGroup;
+        }
+        return response()->json([
+            'error' => 'Committee Role not saved'
+        ], 500);
+    }
+
 }

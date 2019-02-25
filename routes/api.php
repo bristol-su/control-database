@@ -199,5 +199,6 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::get('/', 'PositionStudentGroupAPIController@getAll');
         Route::get('/{position_student_group}', 'PositionStudentGroupAPIController@get');
         Route::post('/', 'PositionStudentGroupAPIController@create');
+        Route::patch('/{position_student_group}', 'PositionStudentGroupAPIController@update');
     });
 });
