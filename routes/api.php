@@ -200,5 +200,6 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::get('/{position_student_group}', 'PositionStudentGroupAPIController@get');
         Route::post('/', 'PositionStudentGroupAPIController@create');
         Route::patch('/{position_student_group}', 'PositionStudentGroupAPIController@update');
+        Route::delete('/{position_student_group}', 'PositionStudentGroupAPIController@delete');
     });
 });
