@@ -235,7 +235,9 @@ return [
     
     'contact_sheet_drive_id' => env('CONTACT_SHEET_DRIVE_ID'),
 
-    'group_sheet_drive_id' => env('GROUP_SHEET_DRIVE_ID')
+    'group_sheet_drive_id' => env('GROUP_SHEET_DRIVE_ID'),
+
+    'committee_year' => (int) env('COMMITTEE_YEAR')
 
 
 ];

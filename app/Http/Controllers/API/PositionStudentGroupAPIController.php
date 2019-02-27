@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Position;
 use App\Models\PositionStudentGroup;
+use App\Rules\IsCommitteeYearRule;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -72,6 +73,7 @@ class PositionStudentGroupAPIController extends Controller
             'position_id' => 'exists:positions,id',
             'position_name' => 'sometimes|string',
             'group_id' => 'exists:groups,id',
+            'committee_year' => ['sometimes', new IsCommitteeYearRule]
         ]);
 
         $positionStudentGroup = new PositionStudentGroup($request->only([
@@ -79,6 +81,7 @@ class PositionStudentGroupAPIController extends Controller
             'position_id',
             'position_name',
             'group_id',
+            'committee_year'
         ]));
 
         if ($positionStudentGroup->save()) {
@@ -99,10 +102,11 @@ class PositionStudentGroupAPIController extends Controller
     public function update(PositionStudentGroup $positionStudentGroup, Request $request)
     {
         $request->validate([
-            'student_id' => 'exists:students,id',
-            'position_id' => 'exists:positions,id',
+            'student_id' => 'sometimes|exists:students,id',
+            'position_id' => 'sometimes|exists:positions,id',
             'position_name' => 'sometimes|string',
-            'group_id' => 'exists:groups,id',
+            'group_id' => 'sometimes|exists:groups,id',
+            'committee_year' => ['sometimes', new IsCommitteeYearRule]
         ]);
 
         $positionStudentGroup->fill($request->input());

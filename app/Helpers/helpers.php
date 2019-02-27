@@ -14,3 +14,9 @@ if(!function_exists('keyprefix'))
     }
 
 }
+
+if( !function_exists('getAcademicYear')) {
+    function getAcademicYear($year) {
+        return $year.'/'.substr(($year+1), 2, 2);
+    }
+}

@@ -32,7 +32,8 @@ class SheetRow extends BaseSheetRow
             'Forename',
             'Surname',
             'Student ID',
-            'Email'
+            'Email',
+            'Active Year'
         ];
     }
 
@@ -54,6 +55,7 @@ class SheetRow extends BaseSheetRow
             'group_accounts' => implode(', ', $this->group->accounts->pluck('code')->toArray()),
             'role' => $this->position->name,
             'position_title' => ($this->positionStudentGroup->position_name === '' ? $this->position->name : $this->positionStudentGroup->position_name),
+            'committee_year' => getAcademicYear($this->positionStudentGroup->committee_year),
             'uid' => $this->student->uc_uid,
             'forename' => $this->unionCloudStudent->forename,
             'surname' => $this->unionCloudStudent->surname,

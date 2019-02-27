@@ -71,6 +71,11 @@ class PositionStudentGroupCrudController extends CrudController
             'model' => 'App\Models\Student',
         ]);
 
+        $this->crud->addColumn([
+            'name' => "committee_year",
+            'label' => "Year", // Table column heading
+            'type' => "text"
+        ]);
 
         $this->crud->addField([  // Select
             'label' => "Group",
@@ -91,19 +96,32 @@ class PositionStudentGroupCrudController extends CrudController
             'model' => "App\Models\Student",
         ]);
 
+        $this->crud->addField([  // Select
+            'label' => "Committee Role",
+            'type' => 'select',
+            'name' => 'position_id', // the db column for the foreign key
+            'entity' => 'position', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Position",
+        ]);
+
         $this->crud->addField([
             'name' => 'position_name',
             'label' => 'Position Name',
             'type' => 'text'
         ]);
 
-        $this->crud->addField([  // Select
-            'label' => "Position",
-            'type' => 'select',
-            'name' => 'position_id', // the db column for the foreign key
-            'entity' => 'position', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => "App\Models\Position",
+
+        $this->crud->addField([
+            'name' => "committee_year",
+            'label' => "Year", // Table column heading
+            'type' => "select_from_array",
+            'options' => [
+                config('app.committee_year'),
+                config('app.committee_year')-1
+            ],
+            'allows_null' => false,
+            'default' => config('app.committee_year'),
         ]);
 
         /*

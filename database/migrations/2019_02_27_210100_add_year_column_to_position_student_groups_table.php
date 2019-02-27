@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPositionNameToPositionStudentGroups extends Migration
+class AddYearColumnToPositionStudentGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddPositionNameToPositionStudentGroups extends Migration
     public function up()
     {
         Schema::table('position_student_group', function (Blueprint $table) {
-            $table->string('position_name')->after('position_id');
+            $table->year('committee_year')->after('position_name');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPositionNameToPositionStudentGroups extends Migration
     public function down()
     {
         Schema::table('position_student_group', function (Blueprint $table) {
-            $table->dropColumn('position_name');
+            $table->dropColumn('committee_year');
         });
     }
 }

@@ -51,7 +51,9 @@ class GenerateContactSheet extends Command
         $this->warn('This feature relies on an implementation of the cache being in place (See PSR-6).');
         // TODO As above
         $sheetRows = new Collection();
-        $psgs = PositionStudentGroup::all();
+        $psgs = PositionStudentGroup::with('group')->get()->sortBy(function ($psg) {
+            return $psg->group->name;
+        });
 
         // Gather together each of the sheet rows
         foreach ($psgs as $psg) {
@@ -69,10 +71,6 @@ class GenerateContactSheet extends Command
                 $counter++;
             }
             return $sheetRow;
-        });
-        // Order the sheet rows
-        $sheetRows = $sheetRows->sortBy(function ($sheetRow) {
-            return $sheetRow->group_name;
         });
 
         // Create the raw data
