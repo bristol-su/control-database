@@ -28,12 +28,12 @@ class SheetRow extends BaseSheetRow
             'Group Accounts',
             'Role',
             'Position Title',
+            'Active Year',
             'UnionCloud UID',
             'Forename',
             'Surname',
             'Student ID',
-            'Email',
-            'Active Year'
+            'Email'
         ];
     }
 
