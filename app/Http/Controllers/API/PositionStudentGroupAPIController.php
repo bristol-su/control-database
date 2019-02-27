@@ -10,15 +10,12 @@ use App\Rules\IsCommitteeYearRule;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use phpseclib\Crypt\Base;
 
 class PositionStudentGroupAPIController extends Controller
 {
 
     use SoftDeletes;
-
-
-    // TODO For all api controllers, set up ordering for get commands, and return something useful.
-
 
     /*
     |--------------------------------------------------------------------------
@@ -35,14 +32,13 @@ class PositionStudentGroupAPIController extends Controller
      *
      * @return Collection
      */
-    public function getAll()
+    public function getAll(Request $request)
     {
-        $psgs = PositionStudentGroup::all();
-        foreach ($psgs as $psg) {
-            $psg->group = Group::find($psg->group_id);
-            $psg->position = Position::find($psg->position_id);
-        }
-        return $psgs;
+        $request->validate([
+            'year' => ['sometimes', new IsCommitteeYearRule]
+        ]);
+        $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
+        return PositionStudentGroup::with(['group', 'position'])->where('committee_year', $year)->all();
     }
 
     /**
@@ -52,11 +48,9 @@ class PositionStudentGroupAPIController extends Controller
      *
      * @return PositionStudentGroup
      */
-    public function get(PositionStudentGroup $positionStudentGroup)
+    public function get($positionStudentGroupID)
     {
-        $positionStudentGroup->group = Group::find($positionStudentGroup->group_id);
-        $positionStudentGroup->position = Position::find($positionStudentGroup->position_id);
-        return $positionStudentGroup;
+        return PositionStudentGroup::with(['group', 'position'])->find($positionStudentGroupID);
     }
 
     /**
