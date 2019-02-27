@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +19,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_27_233040_add_position_student_group_foreign_keys.php">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="75" selection-start-line="17" selection-start-column="75" selection-end-line="17" selection-end-column="75" />
+            <state relative-caret-position="316">
+              <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+              <folding>
+                <element signature="e#40#61#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,9 +170,9 @@
         <option value="$PROJECT_DIR$/app/Helpers/helpers.php" />
         <option value="$PROJECT_DIR$/app/Models/PositionStudentGroup.php" />
         <option value="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_233040_add_position_student_group_foreign_keys.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
       </list>
     </option>
   </component>
@@ -386,19 +389,6 @@
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -525,12 +515,12 @@
       <workItem from="1551059100271" duration="2673000" />
       <workItem from="1551096666659" duration="7000" />
       <workItem from="1551126912516" duration="4980000" />
-      <workItem from="1551300880676" duration="8383000" />
+      <workItem from="1551300880676" duration="9011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316894000" />
+    <option name="totallyTimeSpent" value="317522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -896,16 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -917,6 +897,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="75" selection-start-line="17" selection-start-column="75" selection-end-line="17" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+          <folding>
+            <element signature="e#40#61#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
