@@ -10,6 +10,7 @@ use App\Packages\ContactSheetUpload\SheetRow;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use League\Csv\Writer;
 
@@ -51,10 +52,10 @@ class GenerateContactSheet extends Command
         $this->warn('This feature relies on an implementation of the cache being in place (See PSR-6).');
         // TODO As above
         $sheetRows = new Collection();
-        $psgs = PositionStudentGroup::with('group')->get()->sortBy(function ($psg) {
-            return $psg->group->name;
-        });
-
+        $psgs = PositionStudentGroup::with('group')->get();//->sortBy(function ($psg) {
+//            return $psg->group->name;
+//        });
+        Log::info($psgs->toJson());
         // Gather together each of the sheet rows
         foreach ($psgs as $psg) {
             $group = Group::withTrashed()->where('id', $psg->group_id)->get()->first();
