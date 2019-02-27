@@ -29,7 +29,6 @@ class SaveStudentInCache implements ShouldQueue
     public function __construct($uid)
     {
         $this->queue = 'UnionCloudDataGatherer';
-        Log::info($uid);
         $this->uid = $uid;
     }
 

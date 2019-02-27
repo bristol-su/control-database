@@ -55,7 +55,7 @@ class GenerateContactSheet extends Command
         $psgs = PositionStudentGroup::with('group')->get();//->sortBy(function ($psg) {
 //            return $psg->group->name;
 //        });
-        Log::info($psgs->toJson());
+        Log::info($psgs->where("group", 'LIKE', null)->toJson());
         // Gather together each of the sheet rows
         foreach ($psgs as $psg) {
             $group = Group::withTrashed()->where('id', $psg->group_id)->get()->first();

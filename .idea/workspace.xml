@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,13 +20,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-              <folding>
-                <element signature="e#40#61#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="876">
+              <caret line="67" column="54" lean-forward="true" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -35,10 +32,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Group-&gt;student</find>
-      <find>-&gt;group</find>
-      <find>students()</find>
-      <find>c</find>
       <find>crudcontrollercrudcontroller</find>
       <find>/</find>
       <find>$this</find>
@@ -55,7 +48,6 @@
       <find>Shee</find>
       <find>SheetRowInterface</find>
       <find>contact</find>
-      <find>group</find>
       <find>getPositionName</find>
       <find>__get(</find>
       <find>group_tag_categor</find>
@@ -65,9 +57,13 @@
       <find>$counter</find>
       <find>dd</find>
       <find>dd(</find>
+      <find>Log::</find>
+      <find>references</find>
+      <find>references(</find>
+      <find>group</find>
+      <find>')</find>
     </findStrings>
     <replaceStrings>
-      <replace>Tagged</replace>
       <replace>StudentRemovedFromGroup</replace>
       <replace>AddedTo</replace>
       <replace>deactivate</replace>
@@ -97,6 +93,7 @@
       <replace>group</replace>
       <replace>position</replace>
       <replace>student</replace>
+      <replace>'])</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -123,8 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenAnyPosition.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentGivenSpecificPosition.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromAnyPosition.php" />
         <option value="$PROJECT_DIR$/app/Listeners/ZapierWebhooks/AnyStudentRemovedFromSpecificPosition.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PositionStudentGroupRequest.php" />
@@ -173,7 +168,9 @@
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Collection.php" />
         <option value="$PROJECT_DIR$/app/Helpers/helpers.php" />
         <option value="$PROJECT_DIR$/app/Models/PositionStudentGroup.php" />
+        <option value="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php" />
       </list>
     </option>
   </component>
@@ -388,6 +385,12 @@
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -523,18 +526,18 @@
       <workItem from="1551059100271" duration="2673000" />
       <workItem from="1551096666659" duration="7000" />
       <workItem from="1551126912516" duration="4980000" />
-      <workItem from="1551300880676" duration="4969000" />
+      <workItem from="1551300880676" duration="7520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313480000" />
+    <option name="totallyTimeSpent" value="316031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.26197916" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.26197916" />
       <window_info id="Structure" order="1" sideWeight="0.50345623" side_tool="true" weight="0.3062967" />
       <window_info id="Favorites" order="2" sideWeight="0.5011494" side_tool="true" weight="0.35592315" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -561,10 +564,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../resources/js/app.js" />
-    <entry file="file://$PROJECT_DIR$/../resources/views/home.blade.php" />
-    <entry file="file://$PROJECT_DIR$/../database/factories/AccountFactory.php" />
-    <entry file="file://$PROJECT_DIR$/../database/factories/GroupTagCategoryFactory.php" />
     <entry file="file://$PROJECT_DIR$/../database/seeds/DatabaseSeeder.php" />
     <entry file="file://$PROJECT_DIR$/../database/migrations/2014_10_12_000000_create_users_table.php" />
     <entry file="file://$PROJECT_DIR$/../config/app.php" />
@@ -750,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="14" selection-start-line="57" selection-end-line="57" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/PositionStudentGroupFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -843,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="1597" selection-start-line="1597" selection-end-line="1597" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -878,13 +863,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/telescope.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="588" column="74" lean-forward="true" selection-start-line="588" selection-start-column="74" selection-end-line="588" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="331">
+          <caret line="57" column="63" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="63" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="1220" column="40" selection-start-line="1220" selection-start-column="40" selection-end-line="1220" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Fluent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="67" column="54" lean-forward="true" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
         </state>
       </provider>
     </entry>
