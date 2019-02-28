@@ -10,6 +10,7 @@ use App\Models\GroupTag;
 use App\Models\Position;
 use App\Models\PositionStudentGroup;
 use App\Models\Student;
+use App\Rules\IsCommitteeYearRule;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -313,8 +314,13 @@ class GroupAPIController extends Controller
 */
 
 
-    public function getPositionStudentGroups(Group $group)
+    public function getPositionStudentGroups(Request $request, Group $group)
     {
+        $request->validate([
+            'year' => ['sometimes', new IsCommitteeYearRule()]
+        ]);
+        $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
+
         $positionStudentGroups = $group->positionStudentGroups;
 
         foreach($positionStudentGroups as $psg) {

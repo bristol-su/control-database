@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,13 +19,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-              <folding>
-                <element signature="e#44#80#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="661">
+              <caret line="316" column="75" lean-forward="true" selection-start-line="316" selection-start-column="61" selection-end-line="316" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -34,7 +31,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>crudcontrollercrudcontroller</find>
       <find>/</find>
       <find>$this</find>
       <find>Committee Member Links</find>
@@ -64,6 +60,7 @@
       <find>references(</find>
       <find>group</find>
       <find>')</find>
+      <find>position</find>
     </findStrings>
     <replaceStrings>
       <replace>StudentRemovedFromGroup</replace>
@@ -152,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/Models/GroupTag.php" />
         <option value="$PROJECT_DIR$/app/Models/Student.php" />
         <option value="$PROJECT_DIR$/app/Models/Group.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -173,6 +169,7 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
         <option value="$PROJECT_DIR$/app/Packages/ContactSheetUpload/SheetRow.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
       </list>
     </option>
   </component>
@@ -379,7 +376,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../committee-portal/committee-portal" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -496,12 +493,12 @@
       <workItem from="1551059100271" duration="2673000" />
       <workItem from="1551096666659" duration="7000" />
       <workItem from="1551126912516" duration="4980000" />
-      <workItem from="1551300880676" duration="9486000" />
+      <workItem from="1551300880676" duration="11320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317997000" />
+    <option name="totallyTimeSpent" value="319831000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -534,7 +531,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../database/migrations/2014_10_12_000000_create_users_table.php" />
     <entry file="file://$PROJECT_DIR$/../config/app.php" />
     <entry file="file://$PROJECT_DIR$/app/Packages/GroupSheetUpload/SheetRow.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -653,13 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="56" column="95" selection-start-line="56" selection-start-column="95" selection-end-line="56" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="151" column="27" lean-forward="true" selection-start-line="151" selection-start-column="27" selection-end-line="151" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -881,13 +870,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupTagCategoryAPIController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="231">
+          <caret line="40" column="104" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="104" />
           <folding>
             <element signature="e#44#80#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="316" column="75" lean-forward="true" selection-start-line="316" selection-start-column="61" selection-end-line="316" selection-end-column="75" />
         </state>
       </provider>
     </entry>
