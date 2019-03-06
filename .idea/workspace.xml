@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +19,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
-              <caret line="316" column="75" lean-forward="true" selection-start-line="316" selection-start-column="61" selection-end-line="316" selection-end-column="75" />
+            <state relative-caret-position="525">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -112,9 +112,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -365,7 +362,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -376,7 +381,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../committee-portal/committee-portal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -493,12 +498,13 @@
       <workItem from="1551059100271" duration="2673000" />
       <workItem from="1551096666659" duration="7000" />
       <workItem from="1551126912516" duration="4980000" />
-      <workItem from="1551300880676" duration="11320000" />
+      <workItem from="1551300880676" duration="12201000" />
+      <workItem from="1551633752671" duration="51000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="319831000" />
+    <option name="totallyTimeSpent" value="320763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -508,7 +514,6 @@
       <window_info id="Structure" order="1" sideWeight="0.50345623" side_tool="true" weight="0.3062967" />
       <window_info id="Favorites" order="2" sideWeight="0.5011494" side_tool="true" weight="0.35592315" />
       <window_info id="npm" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Command Line Tools Console" weight="0.3296371" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32862905" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32988507" />
@@ -521,6 +526,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32949308" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32988507" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32862905" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.3296371" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -531,35 +537,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../config/app.php" />
-    <entry file="file://$PROJECT_DIR$/app/Packages/GroupSheetUpload/SheetRow.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Packages/GroupSheetUpload/BaseSheetRow.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" selection-start-line="52" selection-end-line="55" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/StudentTagCategoryCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -886,7 +863,30 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="661">
-          <caret line="316" column="75" lean-forward="true" selection-start-line="316" selection-start-column="61" selection-end-line="316" selection-end-column="75" />
+          <caret line="316" column="75" selection-start-line="316" selection-start-column="61" selection-end-line="316" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ZapierWebhookController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
         </state>
       </provider>
     </entry>

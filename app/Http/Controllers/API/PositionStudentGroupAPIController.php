@@ -50,7 +50,7 @@ class PositionStudentGroupAPIController extends Controller
      */
     public function get($positionStudentGroupID)
     {
-        return PositionStudentGroup::with(['group', 'position'])->find($positionStudentGroupID);
+        return PositionStudentGroup::with(['group', 'position', 'student'])->find($positionStudentGroupID);
     }
 
     /**
