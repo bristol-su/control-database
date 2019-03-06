@@ -321,7 +321,7 @@ class GroupAPIController extends Controller
         ]);
         $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
 
-        $positionStudentGroups = $group->positionStudentGroups;
+        $positionStudentGroups = $group->positionStudentGroups()->where('committee_year', $year)->get();
 
         foreach($positionStudentGroups as $psg) {
             $psg->student = Student::find($psg->student_id);
