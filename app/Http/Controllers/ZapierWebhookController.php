@@ -10,7 +10,6 @@ class ZapierWebhookController extends Controller
 {
 
     public function subscribe(Request $request) {
-        Log::info(json_encode($request->all()));
         $input = $request->all();
         // TODO Validate subscribe requests
 

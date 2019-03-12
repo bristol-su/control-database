@@ -129,7 +129,6 @@ class ZapierWebhookListener implements ShouldQueue
 
             } catch (\Exception $e)
             {
-                Log::error($e);
             }
         }
 
