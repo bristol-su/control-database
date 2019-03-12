@@ -38,6 +38,8 @@ class Kernel extends ConsoleKernel
             ->evenInMaintenanceMode()
             ->environments(['production']);
 
+        $schedule->command('telescope:prune')->daily();
+
 
     }
 
