@@ -8,7 +8,6 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use Twigger\UnionCloud\API\Exception\Request\IncorrectRequestParameterException;
 use Twigger\UnionCloud\API\UnionCloud;
 
