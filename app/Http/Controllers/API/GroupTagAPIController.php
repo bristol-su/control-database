@@ -36,7 +36,7 @@ class GroupTagAPIController extends Controller
      */
     public function getAll()
     {
-        $groupTags = GroupTag::all();
+        $groupTags = GroupTag::with('category')->get();
 
         return $groupTags;
     }
