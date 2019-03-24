@@ -197,7 +197,7 @@ class StudentAPIController extends Controller
     public function deleteStudentTagsWithRelationship(Request $request, Student $student, StudentTag $studentTag)
     {
 
-        if ($student->tags()->where('id', $studentTag->id)->wherePivot('data', $request->all())->detach($studentTag)) {
+        if ($student->tags()->where('id', $studentTag->id)->wherePivot('data', json_encode($request->all()))->detach($studentTag)) {
             return array_merge(
                 array_flip(array_map(function ($u) {
                     return 'tag_' . $u;
