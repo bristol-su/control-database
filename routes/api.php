@@ -126,6 +126,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::get('/{student}/student_tags', 'StudentAPIController@getStudentTags');
         Route::post('/{student}/student_tags', 'StudentAPIController@linkStudentTags');
         Route::delete('/{student}/student_tags/{student_tag}', 'StudentAPIController@deleteStudentTags');
+        Route::delete('/{student}/student_tags_relationship/{student_tag}', 'StudentAPIController@deleteStudentTagsWithRelationship');
 
         # Groups
         Route::get('/{student}/groups', 'StudentAPIController@getGroups');
