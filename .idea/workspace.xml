@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +20,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="707">
+              <caret line="199" column="97" selection-start-line="199" selection-start-column="97" selection-end-line="199" selection-end-column="97" />
+              <folding>
+                <element signature="e#44#80#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -32,8 +35,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/</find>
-      <find>$this</find>
       <find>Committee Member Links</find>
       <find>StudentGivenPosition</find>
       <find>aliases``</find>
@@ -62,6 +63,8 @@
       <find>')</find>
       <find>position</find>
       <find>Log::</find>
+      <find>ConnectionManager</find>
+      <find>function detach(</find>
     </findStrings>
     <replaceStrings>
       <replace>StudentRemovedFromGroup</replace>
@@ -140,7 +143,6 @@
         <option value="$PROJECT_DIR$/app/Models/Student.php" />
         <option value="$PROJECT_DIR$/app/Models/Group.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/factories/PositionStudentGroupFactory.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -168,6 +170,7 @@
         <option value="$PROJECT_DIR$/app/Jobs/SaveStudentInCache.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupTagAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
       </list>
     </option>
   </component>
@@ -314,9 +317,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="27" />
+    <option name="x" value="1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -324,6 +327,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -366,11 +370,23 @@
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
               <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="control-database" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -502,15 +518,16 @@
       <workItem from="1553433692591" duration="33000" />
       <workItem from="1553434331536" duration="851000" />
       <workItem from="1553443889179" duration="194000" />
-      <workItem from="1553458487670" duration="15000" />
+      <workItem from="1553458487670" duration="84000" />
+      <workItem from="1553459224494" duration="2140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325659000" />
+    <option name="totallyTimeSpent" value="327868000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.26197916" />
@@ -540,13 +557,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="38" column="97" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Position.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -565,20 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="79" column="5" lean-forward="true" selection-start-line="53" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="202" column="92" selection-start-line="202" selection-start-column="92" selection-end-line="202" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -877,20 +873,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="128" column="67" selection-start-line="128" selection-start-column="67" selection-end-line="128" selection-end-column="67" />
-          <folding>
-            <element signature="e#44#80#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentTagAPIController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="125" column="29" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/StudentTag.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="199" column="97" selection-start-line="199" selection-start-column="97" selection-end-line="199" selection-end-column="97" />
+          <folding>
+            <element signature="e#44#80#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

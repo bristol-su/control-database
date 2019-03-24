@@ -194,6 +194,21 @@ class StudentAPIController extends Controller
         return response('Student couldn\'t be detached', 500);
     }
 
+    public function deleteStudentTagsWithRelationship(Request $request, Student $student, StudentTag $studentTag)
+    {
+
+        if ($student->tags()->where('id', $studentTag->id)->wherePivot('data', $request->all())->detach($studentTag)) {
+            return array_merge(
+                array_flip(array_map(function ($u) {
+                    return 'tag_' . $u;
+                }, array_flip($studentTag->only(['id', 'name', 'description'])))),
+                array_flip(array_map(function ($u) {
+                    return 'student_' . $u;
+                }, array_flip($student->only(['id', 'uc_uid']))))
+            );
+        }
+        return response('Student couldn\'t be detached', 500);
+    }
 
     /*
     |--------------------------------------------------------------------------
