@@ -32,7 +32,7 @@ class StudentTagAPIController extends Controller
      */
     public function getAll()
     {
-        $studentTags = StudentTag::all();
+        $studentTags = StudentTag::with('category')->get();
 
         return $studentTags;
     }

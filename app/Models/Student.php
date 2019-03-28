@@ -34,6 +34,9 @@ class Student extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function tags()
     {
         return $this->belongsToMany('App\Models\StudentTag')->withPivot('data')->withTimestamps();
