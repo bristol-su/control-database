@@ -74,7 +74,7 @@ class PositionStudentGroupCrudController extends CrudController
         $this->crud->addColumn([
             'name' => "committee_year",
             'label' => "Year", // Table column heading
-            'type' => "text"
+            'type' => "integer"
         ]);
 
         $this->crud->addField([  // Select
@@ -117,11 +117,11 @@ class PositionStudentGroupCrudController extends CrudController
             'label' => "Year", // Table column heading
             'type' => "select_from_array",
             'options' => [
-                config('app.committee_year'),
-                config('app.committee_year')-1
+                (int) config('app.committee_year'),
+                (int) config('app.committee_year')-1
             ],
             'allows_null' => false,
-            'default' => config('app.committee_year'),
+            'default' => (int) config('app.committee_year'),
         ]);
 
         /*
