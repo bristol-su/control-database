@@ -34,12 +34,11 @@ class PositionStudentGroupAPIController extends Controller
      */
     public function getAll(Request $request)
     {
-dd("sdjklfhskdjfh");
         $request->validate([
             'year' => ['sometimes', new IsCommitteeYearRule]
         ]);
         $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
-dd($year);
+
         return PositionStudentGroup::with(['group', 'position'])->where('committee_year', $year)->all();
     }
 

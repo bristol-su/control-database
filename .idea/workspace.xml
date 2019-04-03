@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backpack/custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backpack/custom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Packages/ContactSheetUpload/BaseSheetRow.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Packages/ContactSheetUpload/BaseSheetRow.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +49,6 @@
       <find>student</find>
       <find>$counter</find>
       <find>dd</find>
-      <find>dd(</find>
       <find>references</find>
       <find>references(</find>
       <find>group</find>
@@ -63,6 +61,7 @@
       <find>wherePivot</find>
       <find>app.co``</find>
       <find>Log::</find>
+      <find>dd(</find>
     </findStrings>
     <replaceStrings>
       <replace>StudentRemovedFromGroup</replace>
@@ -118,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Packages/GroupSheetUpload/BaseSheetRow.php" />
         <option value="$PROJECT_DIR$/app/Packages/GroupSheetUpload/SheetRow.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateGroupSheet.php" />
         <option value="$PROJECT_DIR$/.env.example" />
@@ -143,14 +141,12 @@
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_210100_add_year_column_to_position_student_groups_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_21_174354_add_position_name_to_position_student_groups_table.php" />
-        <option value="$PROJECT_DIR$/app/Packages/ContactSheetUpload/BaseSheetRow.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Collection.php" />
         <option value="$PROJECT_DIR$/app/Helpers/helpers.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_225044_add_foreign_keys_to_tables.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_233040_add_position_student_group_foreign_keys.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateContactSheet.php" />
         <option value="$PROJECT_DIR$/app/Packages/ContactSheetUpload/SheetRow.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/GroupAPIController.php" />
         <option value="$PROJECT_DIR$/app/Packages/GoogleDrive/GoogleDriveAdapter.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -169,6 +165,9 @@
         <option value="$PROJECT_DIR$/routes/backpack/custom.php" />
         <option value="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/UpdateOperation.php" />
         <option value="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/PositionStudentGroupAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Packages/ContactSheetUpload/BaseSheetRow.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestResponse.php" />
       </list>
     </option>
   </component>
@@ -529,12 +528,12 @@
       <workItem from="1553625171816" duration="457000" />
       <workItem from="1553625892165" duration="12000" />
       <workItem from="1554235287244" duration="120000" />
-      <workItem from="1554292626973" duration="1205000" />
+      <workItem from="1554292626973" duration="1252000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332642000" />
+    <option name="totallyTimeSpent" value="332689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />

@@ -69,7 +69,6 @@ abstract class BaseSheetRow
             }
             return;
         } catch (\Exception $e) {
-            dd($this);
         }
     }
 
