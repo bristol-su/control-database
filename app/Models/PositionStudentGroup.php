@@ -31,6 +31,11 @@ class PositionStudentGroup extends Model
         'position_name',
         'committee_year'
     ];
+
+    protected $casts = [
+        'committee_year' => 'integer'
+    ];
+
     // protected $hidden = [];
     // protected $dates = [];
     protected $dispatchesEvents = [
