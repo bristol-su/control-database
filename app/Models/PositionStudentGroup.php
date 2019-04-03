@@ -29,7 +29,7 @@ class PositionStudentGroup extends Model
         'student_id',
         'position_id',
         'position_name',
-        'year'
+        'committee_year'
     ];
     // protected $hidden = [];
     // protected $dates = [];
