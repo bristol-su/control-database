@@ -117,8 +117,8 @@ class PositionStudentGroupCrudController extends CrudController
             'label' => "Year", // Table column heading
             'type' => "select_from_array",
             'options' => [
-                (int) config('app.committee_year'),
-                (int) config('app.committee_year')-1
+                config('app.committee_year') => config('app.committee_year'),
+                config('app.committee_year')-1 => config('app.committee_year')-1
             ],
             'allows_null' => false,
         ]);
