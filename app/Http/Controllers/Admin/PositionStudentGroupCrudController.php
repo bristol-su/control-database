@@ -121,7 +121,6 @@ class PositionStudentGroupCrudController extends CrudController
                 (int) config('app.committee_year')-1
             ],
             'allows_null' => false,
-            'default' => (int) config('app.committee_year'),
         ]);
 
         /*
