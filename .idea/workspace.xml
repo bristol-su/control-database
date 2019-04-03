@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/backpack/custom.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backpack/custom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
+            <state relative-caret-position="68">
+              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
             </state>
           </provider>
         </entry>
@@ -54,13 +56,13 @@
       <find>group</find>
       <find>')</find>
       <find>position</find>
-      <find>Log::</find>
       <find>ConnectionManager</find>
       <find>function detach(</find>
       <find>StudentTag:</find>
       <find>wherePivot(</find>
       <find>wherePivot</find>
       <find>app.co``</find>
+      <find>Log::</find>
     </findStrings>
     <replaceStrings>
       <replace>StudentRemovedFromGroup</replace>
@@ -116,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../config/app.php" />
         <option value="$PROJECT_DIR$/app/Packages/GroupSheetUpload/BaseSheetRow.php" />
         <option value="$PROJECT_DIR$/app/Packages/GroupSheetUpload/SheetRow.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GenerateGroupSheet.php" />
@@ -164,9 +165,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StudentAPIController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Models/PositionStudentGroup.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" />
+        <option value="$PROJECT_DIR$/routes/backpack/custom.php" />
         <option value="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/UpdateOperation.php" />
         <option value="$PROJECT_DIR$/vendor/backpack/crud/src/app/Http/Controllers/Operations/CreateOperation.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php" />
       </list>
     </option>
   </component>
@@ -527,12 +529,12 @@
       <workItem from="1553625171816" duration="457000" />
       <workItem from="1553625892165" duration="12000" />
       <workItem from="1554235287244" duration="120000" />
-      <workItem from="1554292626973" duration="1138000" />
+      <workItem from="1554292626973" duration="1205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332575000" />
+    <option name="totallyTimeSpent" value="332642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -912,8 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PositionStudentGroupCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
+        <state relative-caret-position="68">
+          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
         </state>
       </provider>
     </entry>

@@ -176,7 +176,6 @@ class PositionStudentGroupCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        dd($request);
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
@@ -186,7 +185,6 @@ class PositionStudentGroupCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
-        dd($request);
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here

@@ -49,7 +49,7 @@ Route::group([
     Route::post('position/{trashed_position}/restore', 'PositionCrudController@restore');
 
     Route::delete('position_student_group/{trashed_position_student_group}/delete', function() {
-        \Illuminate\Support\Facades\Log::info('Remove these buttons and change from deactivated to ex or sth');
+        // TODO 'Remove these buttons and change from deactivated to ex or sth');
     });
     Route::post('position_student_group/{trashed_position_student_group}/restore', 'PositionStudentGroupCrudController@restore');
 
