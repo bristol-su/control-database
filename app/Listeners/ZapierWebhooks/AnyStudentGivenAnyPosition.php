@@ -21,7 +21,7 @@ class AnyStudentGivenAnyPosition extends ZapierWebhookListener
         return array_merge(
             array_flip(array_map(function($u){ return 'student_'.$u; }, array_flip($this->student->only(['id', 'uc_uid'])))),
             array_flip(array_map(function($u){ return 'position_'.$u; }, array_flip($this->position->only(['id', 'name', 'description'])))),
-            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($this->position->only(['id', 'name']))))
+            array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($this->group->only(['id', 'name']))))
         );
     }
 
