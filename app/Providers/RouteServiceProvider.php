@@ -79,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
         // Override default throttling for getting an oauth token
         Route::post('/oauth/token', [
             'uses' => '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken',
-            'middleware' => 'throttle:60,5',
+            'middleware' => 'throttle:300,1',
         ]);
     }
 
