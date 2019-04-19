@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-    </list>
+    <list default="true" id="65c9beac-eae0-4f75-8ca1-48f0eae01e7f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +19,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="353">
               <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
             </state>
           </provider>
@@ -32,7 +29,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Position</find>
       <find>PositionStudentGroups</find>
       <find>count($positionStudentGroups) === 0</find>
       <find>$positionStudentGroups-&gt;exists</find>
@@ -62,6 +58,7 @@
       <find>Log::</find>
       <find>dd(</find>
       <find>Thr</find>
+      <find>view-as-student</find>
     </findStrings>
     <replaceStrings>
       <replace>StudentRemovedFromGroup</replace>
@@ -347,28 +344,6 @@
               <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="control-database" type="b2602c69:ProjectViewProjectNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
-              <item name="control-database" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -533,16 +508,15 @@
       <workItem from="1555266426181" duration="137000" />
       <workItem from="1555268704107" duration="1147000" />
       <workItem from="1555313890216" duration="66000" />
-      <workItem from="1555405570155" duration="40000" />
+      <workItem from="1555405570155" duration="702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="336234000" />
+    <option name="totallyTimeSpent" value="336896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49654377" visible="true" weight="0.30625" />
       <window_info id="Structure" order="1" sideWeight="0.50345623" side_tool="true" weight="0.3062967" />
@@ -918,7 +892,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="353">
           <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
         </state>
       </provider>
