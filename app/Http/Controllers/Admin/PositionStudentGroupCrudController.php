@@ -37,7 +37,6 @@ class PositionStudentGroupCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->addColumn([
             'name' => "group_id",
             'label' => "Group", // Table column heading
@@ -64,10 +63,20 @@ class PositionStudentGroupCrudController extends CrudController
 
         $this->crud->addColumn([
             'name' => "student_id",
-            'label' => "Student", // Table column heading
+            'label' => "Student Uid", // Table column heading
             'type' => "select",
             'entity' => 'student',
             'attribute' => 'uc_uid',
+            'model' => 'App\Models\Student',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => "student_id",
+            'label' => "Student", // Table column heading
+            'type' => "unioncloud_uid_to_name_with_relation",
+            'attribute' => 'uc_uid',
+            'key' => 'name',
+            'entity' => 'student',
             'model' => 'App\Models\Student',
         ]);
 
@@ -89,7 +98,9 @@ class PositionStudentGroupCrudController extends CrudController
 
         $this->crud->addField([  // Select
             'label' => "Student",
-            'type' => 'select',
+            'type' => 'select2_unioncloud_uid',
+//            'placeholder' => 'Please select a student',
+//            'minimum_input_length' => 2,
             'name' => 'student_id', // the db column for the foreign key
             'entity' => 'student', // the method that defines the relationship in your Model
             'attribute' => 'uc_uid', // foreign key attribute that is shown to user

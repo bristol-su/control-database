@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/aws/aws-sdk-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/rebing/graphql-laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webonyx/graphql-php" />
       <excludeFolder url="file://$MODULE_DIR$/../vendor/bmitch/churn-php" />
       <excludeFolder url="file://$MODULE_DIR$/../vendor/cakephp/chronos" />
       <excludeFolder url="file://$MODULE_DIR$/../vendor/container-interop/container-interop" />

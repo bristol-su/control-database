@@ -39,8 +39,24 @@ class StudentCrudController extends CrudController
             'name' => 'uc_uid',
             'label' => 'UnionCloud UID',
             'type' => 'number',
+            'key' => 'uid',
             'decimals' => 0,
         ]);
+
+        $this->crud->addColumn([
+            'name' => 'uc_uid',
+            'label' => 'Name',
+            'key' => 'name',
+            'type' => 'unioncloud_uid_to_name',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'uc_uid',
+            'label' => 'Email',
+            'key' => 'email',
+            'type' => 'unioncloud_uid_to_email',
+        ]);
+
 
         $this->crud->addField([
             'name' => 'uc_uid',
