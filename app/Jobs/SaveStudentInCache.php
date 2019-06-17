@@ -60,7 +60,7 @@ class SaveStudentInCache implements ShouldQueue
             'surname' => $user->surname,
             'email' => $user->email,
             'id' => $user->uid,
-            'student_id' => $user->student_id
+            'student_id' => $user->id
         ]);
 
     }
