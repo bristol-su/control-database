@@ -47,7 +47,8 @@ class SaveStudentInCache implements ShouldQueue
                     'forename' => 'N/A',
                     'surname' => 'N/A',
                     'email' => 'N/A',
-                    'id' => $this->uid
+                    'id' => $this->uid,
+                    'student_id' => 'N/A'
                 ]), 20000);
             }
         }
@@ -58,7 +59,8 @@ class SaveStudentInCache implements ShouldQueue
             'forename' => $user->forename,
             'surname' => $user->surname,
             'email' => $user->email,
-            'id' => $user->uid
+            'id' => $user->uid,
+            'student_id' => $user->student_id
         ]);
 
     }

@@ -46,7 +46,7 @@ class SheetRow extends BaseSheetRow
         }
 
         $this->unionCloudStudent = $unionCloudStudent;
-
+        dd($this->unionCloudStudent);
         $this->elements = [
             'group_status' => $this->getGroupStatus(),
             'group_id' => $this->group->id,
