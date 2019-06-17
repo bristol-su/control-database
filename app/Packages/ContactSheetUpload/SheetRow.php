@@ -33,7 +33,8 @@ class SheetRow extends BaseSheetRow
             'Forename',
             'Surname',
             'Student ID',
-            'Email'
+            'Email',
+            'Position Started'
         ];
     }
 
@@ -59,8 +60,9 @@ class SheetRow extends BaseSheetRow
             'uid' => $this->student->uc_uid,
             'forename' => $this->unionCloudStudent->forename,
             'surname' => $this->unionCloudStudent->surname,
-            'student_id' => $this->unionCloudStudent->id,
-            'email' => $this->unionCloudStudent->email
+            'student_id' => $this->unionCloudStudent->student_id,
+            'email' => $this->unionCloudStudent->email,
+            'started' => $this->student->created_at
         ];
         return true;
     }
