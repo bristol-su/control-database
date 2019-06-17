@@ -24,6 +24,7 @@
         "league/csv": "^9.1",
         "nao-pon/flysystem-google-drive": "~1.1",
         "predis/predis": "^1.1",
+        "rebing/graphql-laravel": "^1.22",
         "twigger/unioncloud": "dev-master",
         "venturecraft/revisionable": "^1.28"
     },
