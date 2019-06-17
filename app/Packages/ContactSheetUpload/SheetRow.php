@@ -60,7 +60,7 @@ class SheetRow extends BaseSheetRow
             'uid' => $this->student->uc_uid,
             'forename' => $this->unionCloudStudent->forename,
             'surname' => $this->unionCloudStudent->surname,
-            'student_id' => $this->unionCloudStudent->student_id,
+            'student_id' => $this->unionCloudStudent->uid,
             'email' => $this->unionCloudStudent->email,
             'started' => $this->student->created_at
         ];
