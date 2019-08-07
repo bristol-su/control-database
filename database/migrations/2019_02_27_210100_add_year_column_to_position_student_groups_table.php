@@ -14,7 +14,7 @@ class AddYearColumnToPositionStudentGroupsTable extends Migration
     public function up()
     {
         Schema::table('position_student_group', function (Blueprint $table) {
-            $table->year('committee_year')->after('position_name');
+            $table->year('committee_year')->default('default')->after('position_name');
         });
     }
 

@@ -39,7 +39,7 @@ class PositionStudentGroupAPIController extends Controller
         ]);
         $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
 
-        return PositionStudentGroup::with(['group', 'position'])->where('committee_year', $year)->all();
+        return PositionStudentGroup::with(['group', 'position'])->where('committee_year', $year)->get();
     }
 
     /**

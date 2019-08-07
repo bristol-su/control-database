@@ -14,7 +14,7 @@ class AddPositionNameToPositionStudentGroupsTable extends Migration
     public function up()
     {
         Schema::table('position_student_group', function (Blueprint $table) {
-            $table->string('position_name')->after('position_id');
+            $table->string('position_name')->default('default')->after('position_id');
         });
     }
 
