@@ -35,15 +35,15 @@ class SaveGroupInCache implements ShouldQueue
         /** @var UnionCloud $unioncloud */
         $unioncloud = app()->make(UnionCloud::class);
 
-        $cacheKey = 'command:contactsheet:unioncloud:groupId.'.$this->groupId;
+        $cacheKey = 'command:contactsheet:unioncloud:group:id.'.$this->groupId;
 
         if(!Cache::has($cacheKey)) {
             try {
                 $group = $unioncloud->groups()->getByID($this->groupId)->get()->first();
-                Cache::put('command:contactsheet:unioncloud:groupId.'.$this->groupId, $this->filterUser($group), 20000);
+                Cache::put('command:contactsheet:unioncloud:group:id.'.$this->groupId, $this->filterUser($group), 20000);
             } catch (IncorrectRequestParameterException $exception)
             {
-                Cache::put('command:contactsheet:unioncloud:groupId.'.$this->groupId, json_encode([
+                Cache::put('command:contactsheet:unioncloud:group:id.'.$this->groupId, json_encode([
                     'name' => 'N/A',
                 ]), 200);
             }
