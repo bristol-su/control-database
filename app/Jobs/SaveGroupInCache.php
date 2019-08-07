@@ -30,8 +30,11 @@ class SaveGroupInCache implements ShouldQueue
         $this->groupId = $groupId;
     }
 
-    public function handle(UnionCloud $unioncloud)
-    {
+    public function handle()
+    {#
+        /** @var UnionCloud $unioncloud */
+        $unioncloud = app()->make(UnionCloud::class);
+
         $cacheKey = 'command:contactsheet:unioncloud:groupId.'.$this->groupId;
 
         if(!Cache::has($cacheKey)) {
