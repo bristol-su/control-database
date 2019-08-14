@@ -50,6 +50,7 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         # Resources
         Route::post('/search', 'GroupAPIController@search');
         Route::get('/', 'GroupAPIController@getAll');
+        Route::get('/deactivated', 'GroupAPIController@getDeactivated');
         Route::get('/{group}', 'GroupAPIController@get');
         Route::post('/', 'GroupAPIController@create');
         Route::patch('/{group}', 'GroupAPIController@update');

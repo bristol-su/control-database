@@ -138,6 +138,11 @@ class GroupAPIController extends Controller
         return $groups;
     }
 
+    public function getDeactivated(Request $request)
+    {
+        return Group::onlyTrashed()->get();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Group -> Group Tag Relationships
@@ -183,7 +188,7 @@ class GroupAPIController extends Controller
             array_flip(array_map(function($u){ return 'group_'.$u; }, array_flip($group->only(['id', 'name', 'email', 'unioncloud_id'])))),
             ["group_tags" => $groupTags]
         );
-        
+
     }
 
     public function deleteGroupTags(Request $request, Group $group, GroupTag $groupTag)
