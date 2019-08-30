@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Cache;
+use Twigger\UnionCloud\API\Exception\BaseUnionCloudException;
 use Twigger\UnionCloud\API\Exception\Request\IncorrectRequestParameterException;
 use Twigger\UnionCloud\API\UnionCloud;
 
@@ -41,7 +42,7 @@ class SaveGroupInCache implements ShouldQueue
             try {
                 $group = $unioncloud->groups()->getByID($this->groupId)->get()->first();
                 Cache::put('command:contactsheet:unioncloud:group:id.'.$this->groupId, $this->filterUser($group), 20000);
-            } catch (IncorrectRequestParameterException $exception)
+            } catch (BaseUnionCloudException $exception)
             {
                 Cache::put('command:contactsheet:unioncloud:group:id.'.$this->groupId, json_encode([
                     'name' => 'N/A',
