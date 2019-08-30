@@ -41,10 +41,10 @@ class SheetRow extends BaseSheetRow
             'Position Started'
         ], StudentTag::all()->map(function($tag) {
             return 'Student Tag - '.$tag->name;
-        }),
+        })->toArray(),
         GroupTag::all()->map(function($tag) {
             return 'Group Tag - '.$tag->name;
-        }));
+        })->toArray());
     }
 
     public function generateData()
