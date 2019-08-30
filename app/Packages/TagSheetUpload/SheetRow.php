@@ -58,11 +58,13 @@ class SheetRow extends BaseSheetRow
 
 
         $this->unionCloudStudent = $unionCloudStudent;
-        $studentTags = StudentTag::all()->map(function($studentTag) {
-            return ($studentTag->students->contains($this->student)?'Y':'N');
+        $ownedStudentTags = $this->student->tags;
+        $studentTags = StudentTag::all()->map(function($studentTag) use ($ownedStudentTags) {
+            return ($ownedStudentTags->contains($studentTag)?'Y':'N');
         })->toArray();
-        $groupTags = GroupTag::all()->map(function($groupTag) {
-            return ($groupTag->groups->contains($this->group)?'Y':'N');
+        $ownedGroupTags = $this->group->tags;
+        $groupTags = GroupTag::all()->map(function($groupTag) use ($ownedGroupTags){
+            return ($ownedGroupTags->contains($groupTag)?'Y':'N');
         })->toArray();
         $this->elements = array_merge([
             'group_status' => $this->getGroupStatus(),
