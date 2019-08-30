@@ -39,7 +39,12 @@ class SheetRow extends BaseSheetRow
             'Student ID',
             'Email',
             'Position Started'
-        ], StudentTag::all()->pluck('name')->toArray(), GroupTag::all()->pluck('name')->toArray());
+        ], StudentTag::all()->map(function($tag) {
+            return 'Student Tag - '.$tag->name;
+        }),
+        GroupTag::all()->map(function($tag) {
+            return 'Group Tag - '.$tag->name;
+        }));
     }
 
     public function generateData()
