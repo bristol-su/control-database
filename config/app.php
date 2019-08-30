@@ -231,7 +231,9 @@ return [
     'contact_sheet_frequency' => env('CONTACT_SHEET_FREQUENCY', 15),
 
     'group_sheet_frequency' => env('GROUP_SHEET_FREQUENCY', 15),
-    
+
+    'tag_sheet_drive_id' => env('TAG_SHEET_DRIVE_ID', 15),
+
     'contact_sheet_drive_id' => env('CONTACT_SHEET_DRIVE_ID'),
 
     'group_sheet_drive_id' => env('GROUP_SHEET_DRIVE_ID'),
