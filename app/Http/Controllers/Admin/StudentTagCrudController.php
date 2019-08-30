@@ -58,6 +58,7 @@ class StudentTagCrudController extends CrudController
             'function_name' => 'getCategoryName'
         ]);
 
+
         $this->crud->addField([
             'name' => 'name',
             'label' => 'Tag Name',
