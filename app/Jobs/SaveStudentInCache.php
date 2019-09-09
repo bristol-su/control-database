@@ -42,7 +42,7 @@ class SaveStudentInCache implements ShouldQueue
             try {
                 $user = $unioncloud->users()->getByUID($this->uid)->get()->first();
                 Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, $this->filterUser($user), 20000);
-            } catch (BaseUnionCloudException $exception)
+            } catch (IncorrectRequestParameterException $exception)
             {
                 Cache::put('command:contactsheet:unioncloud:uid.'.$this->uid, json_encode([
                     'forename' => 'N/A',
