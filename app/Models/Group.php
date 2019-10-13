@@ -66,6 +66,11 @@ class Group extends Model
     {
         return $this->hasMany('App\Models\Role');
     }
+
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'group_student');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

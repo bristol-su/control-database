@@ -46,6 +46,11 @@ class Student extends Model
     {
         return $this->belongsToMany('App\Models\Role', 'user_role');
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_student');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
