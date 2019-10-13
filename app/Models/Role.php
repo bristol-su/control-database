@@ -55,7 +55,7 @@ class Role extends Model
 
     public function student()
     {
-        return $this->hasMany('App\Models\Student');
+        return $this->hasMany('App\Models\Student', 'user_role');
     }
 
     public function group()
