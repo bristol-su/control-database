@@ -20,7 +20,6 @@ class Role extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'position_student_group';
      protected $primaryKey = 'id';
      public $timestamps = true;
     // protected $guarded = ['id'];
