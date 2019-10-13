@@ -51,7 +51,7 @@ class RoleAPIController extends Controller
      */
     public function get($positionStudentGroupID)
     {
-        return Role::with(['group', 'position', 'student'])->find($positionStudentGroupID);
+        return Role::with(['group', 'position'])->find($positionStudentGroupID);
     }
 
     /**
