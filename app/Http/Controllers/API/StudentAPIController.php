@@ -278,7 +278,7 @@ class StudentAPIController extends Controller
 
     public function getRoles(Student $student)
     {
-        return $student->roles()->where('deleted_at', null)->with(['group', 'position'])->get();
+        return $student->roles()->where('user_role.deleted_at', null)->with(['group', 'position'])->get();
     }
 
     /**
