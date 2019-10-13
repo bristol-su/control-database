@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\GenerateContactSheet;
 use App\Console\Commands\GenerateGroupSheet;
+use App\Console\Commands\GenerateTagSheet;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -32,6 +33,10 @@ class Kernel extends ConsoleKernel
             ->evenInMaintenanceMode()
             ->environments(['production']);
 
+        $schedule->command(GenerateTagSheet::class)
+            ->hourly()
+            ->evenInMaintenanceMode()
+            ->environments(['production']);
 
         $schedule->command(GenerateGroupSheet::class)
             ->everyFifteenMinutes()
