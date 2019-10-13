@@ -62,9 +62,9 @@ class Group extends Model
         return $this->hasMany('App\Models\Account');
     }
 
-    public function positionStudentGroups()
+    public function roles()
     {
-        return $this->hasMany('App\Models\PositionStudentGroup');
+        return $this->hasMany('App\Models\Role');
     }
     /*
     |--------------------------------------------------------------------------

@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Group;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Packages\ContactSheetUpload\SheetRow;
 use Carbon\Carbon;
@@ -52,7 +52,7 @@ class GenerateContactSheet extends Command
         $this->warn('This feature relies on an implementation of the cache being in place (See PSR-6).');
         // TODO As above
         $sheetRows = new Collection();
-        $psgs = PositionStudentGroup::with(['group' =>   function($query) {
+        $psgs = Role::with(['group' =>   function($query) {
             $query->withTrashed();
         }])->get()->sortBy(function ($psg) {
             return $psg->group->name;

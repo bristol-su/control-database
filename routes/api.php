@@ -136,9 +136,9 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::delete('/{student}/groups/{group}', 'StudentAPIController@deleteGroups');
 
         # Positions
-        Route::get('/{student}/position_student_groups', 'StudentAPIController@getPositionStudentGroups');
-        Route::post('/{student}/position_student_groups', 'StudentAPIController@linkPositionStudentGroups');
-        Route::delete('/{student}/position_student_groups/{position}', 'StudentAPIController@deletePositionStudentGroups');
+        Route::get('/{student}/roles', 'StudentAPIController@getRoles');
+        Route::post('/{student}/roles', 'StudentAPIController@linkRoles');
+        Route::delete('/{student}/roles/{position}', 'StudentAPIController@deleteRoles');
 
     });
 
@@ -152,10 +152,10 @@ Route::middleware('auth:api')->namespace('API')->group(function()
         Route::patch('/{position}', 'PositionAPIController@update');
         Route::delete('/{position}', 'PositionAPIController@delete');
 
-        # Students
-        Route::get('/{position}/students', 'PositionAPIController@getStudents');
-        Route::post('/{position}/students', 'PositionAPIController@linkStudents');
-        Route::delete('/{position}/students/{student}', 'PositionAPIController@deleteStudents');
+//        # Students
+//        Route::get('/{position}/students', 'PositionAPIController@getStudents');
+//        Route::post('/{position}/students', 'PositionAPIController@linkStudents');
+//        Route::delete('/{position}/students/{student}', 'PositionAPIController@deleteStudents');
 
     });
 
@@ -196,13 +196,13 @@ Route::middleware('auth:api')->namespace('API')->group(function()
     });
 
     # Position Student Group Endpoints
-    Route::prefix('position_student_groups')->group(function () {
+    Route::prefix('roles')->group(function () {
 
         # Resources
-        Route::get('/', 'PositionStudentGroupAPIController@getAll');
-        Route::get('/{position_student_group}', 'PositionStudentGroupAPIController@get');
-        Route::post('/', 'PositionStudentGroupAPIController@create');
-        Route::patch('/{position_student_group}', 'PositionStudentGroupAPIController@update');
-        Route::delete('/{position_student_group}', 'PositionStudentGroupAPIController@delete');
+        Route::get('/', 'RoleAPIController@getAll');
+        Route::get('/{role}', 'RoleAPIController@get');
+        Route::post('/', 'RoleAPIController@create');
+        Route::patch('/{role}', 'RoleAPIController@update');
+        Route::delete('/{role}', 'RoleAPIController@delete');
     });
 });

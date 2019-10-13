@@ -42,9 +42,9 @@ class Student extends Model
         return $this->belongsToMany('App\Models\StudentTag')->withPivot('data')->withTimestamps();
     }
 
-    public function positionStudentGroups()
+    public function roles()
     {
-        return $this->hasMany('App\Models\PositionStudentGroup');
+        return $this->hasMany('App\Models\Role');
     }
     /*
     |--------------------------------------------------------------------------

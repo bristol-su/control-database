@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Models\Position;
 use Illuminate\Queue\SerializesModels;
@@ -22,7 +22,7 @@ class StudentGivenPosition
      *
      * @return void
      */
-    public function __construct(PositionStudentGroup $psg)
+    public function __construct(Role $psg)
     {
         $this->psg = $psg;
     }

@@ -11,7 +11,7 @@ namespace App\Packages\TagSheetUpload;
 
 use App\Models\Group;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use Mockery\Exception;
 
@@ -34,13 +34,13 @@ abstract class BaseSheetRow
     protected $group;
 
     /**
-     * @var PositionStudentGroup
+     * @var Role
      */
     protected $positionStudentGroup;
 
     protected $elements;
 
-    public function __construct(Position $position, Student $student, Group $group, PositionStudentGroup $psg)
+    public function __construct(Position $position, Student $student, Group $group, Role $psg)
     {
         $this->position = $position;
         $this->student = $student;

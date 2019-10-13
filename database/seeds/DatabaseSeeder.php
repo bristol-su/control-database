@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
 
                 # Give the students a position
                 $position = \App\Models\Position::orderByRaw('RAND()')->get()->first();
-                $PosStuGrp = factory(App\Models\PositionStudentGroup::class)->create([
+                $PosStuGrp = factory(App\Models\Role::class)->create([
                     'group_id' => $grp->id,
                     'student_id' => $student->id,
                     'position_id' => $position->id

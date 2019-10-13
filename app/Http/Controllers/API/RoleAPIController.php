@@ -5,14 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Rules\IsCommitteeYearRule;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use phpseclib\Crypt\Base;
 
-class PositionStudentGroupAPIController extends Controller
+class RoleAPIController extends Controller
 {
 
     use SoftDeletes;
@@ -39,19 +39,19 @@ class PositionStudentGroupAPIController extends Controller
         ]);
         $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
 
-        return PositionStudentGroup::with(['group', 'position'])->where('committee_year', $year)->get();
+        return Role::with(['group', 'position'])->where('committee_year', $year)->get();
     }
 
     /**
      * Get an account by ID. Route model binding will pass the account
      *
-     * @param PositionStudentGroup $positionStudentGroup
+     * @param Role $positionStudentGroup
      *
-     * @return PositionStudentGroup
+     * @return Role
      */
     public function get($positionStudentGroupID)
     {
-        return PositionStudentGroup::with(['group', 'position', 'student'])->find($positionStudentGroupID);
+        return Role::with(['group', 'position', 'student'])->find($positionStudentGroupID);
     }
 
     /**
@@ -59,7 +59,7 @@ class PositionStudentGroupAPIController extends Controller
      *
      * @param Request $request
      *
-     * @return PositionStudentGroup
+     * @return Role
      */
     public function create(Request $request)
     {
@@ -71,7 +71,7 @@ class PositionStudentGroupAPIController extends Controller
             'committee_year' => ['sometimes', new IsCommitteeYearRule]
         ]);
 
-        $positionStudentGroup = new PositionStudentGroup($request->only([
+        $positionStudentGroup = new Role($request->only([
             'student_id',
             'position_id',
             'position_name',
@@ -92,9 +92,9 @@ class PositionStudentGroupAPIController extends Controller
      *
      * @param Request $request
      *
-     * @return PositionStudentGroup
+     * @return Role
      */
-    public function update(PositionStudentGroup $positionStudentGroup, Request $request)
+    public function update(Role $positionStudentGroup, Request $request)
     {
         $request->validate([
             'student_id' => 'sometimes|exists:students,id',
@@ -119,11 +119,11 @@ class PositionStudentGroupAPIController extends Controller
      *
      * @param Request $request
      *
-     * @return PositionStudentGroup
+     * @return Role
      */
     public function delete(Request $request, $positionStudentGroupID)
     {
-        abort_if(!PositionStudentGroup::destroy($positionStudentGroupID), 500, 'Could not delete committee role');
+        abort_if(!Role::destroy($positionStudentGroupID), 500, 'Could not delete committee role');
 
         return response('', 200);
     }

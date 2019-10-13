@@ -7,7 +7,7 @@ use App\Models\Group;
 use App\Models\GroupTag;
 use App\Models\GroupTagCategory;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Models\StudentTag;
 use App\Models\StudentTagCategory;
@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
             return StudentTagCategory::onlyTrashed()->findOrFail($id);
         });
         Route::bind('trashed_position_student_group', function($id) {
-            return PositionStudentGroup::onlyTrashed()->findOrFail($id);
+            return Role::onlyTrashed()->findOrFail($id);
         });
     }
 

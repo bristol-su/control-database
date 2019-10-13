@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Models\Group;
 use App\Models\GroupTag;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Models\StudentTag;
 use App\Observers\GroupObserver;
@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         StudentTag::observe(StudentTagObserver::class);
 
         # Default the position name
-        PositionStudentGroup::creating(function ($psg) {
+        Role::creating(function ($psg) {
             if ($psg->position && !$psg->position_name) {
                 $psg->position_name = $psg->position->name;
             }

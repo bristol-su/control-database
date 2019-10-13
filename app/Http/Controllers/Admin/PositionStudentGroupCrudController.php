@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -24,7 +24,7 @@ class PositionStudentGroupCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\PositionStudentGroup');
+        $this->crud->setModel('App\Models\Role');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/position_student_group');
         $this->crud->setEntityNameStrings('Committee Member', 'Committee Members');
         $this->crud->allowAccess('revisions');
@@ -202,13 +202,13 @@ class PositionStudentGroupCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-    
-    public function delete(PositionStudentGroup $positionStudentGroup)
+
+    public function delete(Role $positionStudentGroup)
     {
         return (string) $positionStudentGroup->forceDelete();
     }
 
-    public function restore(PositionStudentGroup $positionStudentGroup)
+    public function restore(Role $positionStudentGroup)
     {
         if(! $positionStudentGroup->restore())
         {

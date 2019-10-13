@@ -10,7 +10,7 @@ use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Venturecraft\Revisionable\RevisionableTrait;
 
-class PositionStudentGroup extends Model
+class Role extends Model
 {
     use CrudTrait, PivotEventTrait, RevisionableTrait, SoftDeletes;
 
@@ -56,7 +56,7 @@ class PositionStudentGroup extends Model
 
     public function student()
     {
-        return $this->belongsTo('App\Models\Student');
+        return $this->hasMany('App\Models\Student');
     }
 
     public function group()

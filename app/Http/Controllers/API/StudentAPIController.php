@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Models\StudentTag;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -276,14 +276,9 @@ class StudentAPIController extends Controller
     */
 
 
-    public function getPositionStudentGroups(Student $student)
+    public function getRoles(Student $student)
     {
-        $positionStudentGroups = $student->positionStudentGroups;
-        foreach ($positionStudentGroups as $psg) {
-            $psg->group = Group::find($psg->group_id);
-            $psg->position = Position::find($psg->position_id);
-        }
-        return $positionStudentGroups;
+        return $student->roles()->with(['group', 'position'])->get();
     }
 
     /**
@@ -301,7 +296,7 @@ class StudentAPIController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
-    public function linkPositionStudentGroups(Request $request, Student $student)
+    public function linkRoles(Request $request, Student $student)
     {
 
         $request->validate([
@@ -312,11 +307,11 @@ class StudentAPIController extends Controller
 
         $positionIds = [];
         foreach ($request->input('data') as $data) {
-            $positionStudentGroup = new PositionStudentGroup([
+            $role = new Role([
                 'group_id' => $data['group_id'],
                 'position_id' => $data['position_id'],
             ]);
-            $student->positionStudentGroups()->save($positionStudentGroup);
+            $student->roles()->save($role);
             $positionIds[] = $data['position_id'];
         }
 
@@ -346,7 +341,7 @@ class StudentAPIController extends Controller
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
-    public function deletePositionStudentGroups(Request $request, Student $student, Position $position)
+    public function deleteRoles(Request $request, Student $student, Position $position)
     {
 
         $request->validate([
@@ -355,17 +350,17 @@ class StudentAPIController extends Controller
 
         $groupId = (int)$request->input('group_id');
 
-        $positionStudentGroups = $student->positionStudentGroups()->where([
+        $roles = $student->roles()->where([
             'position_id' => $position->id,
             'group_id' => $groupId
         ])->get()->first();
 
-        if ($positionStudentGroups !== null && $positionStudentGroups->delete()) {
+        if ($roles !== null && $roles->delete()) {
             return array_merge(
                 array_flip(array_map(function ($u) {
                     return 'student_' . $u;
                 }, array_flip($student->only(['id', 'uc_uid'])))),
-                ["positions" => $positionStudentGroups]
+                ["positions" => $roles]
             );
         }
 

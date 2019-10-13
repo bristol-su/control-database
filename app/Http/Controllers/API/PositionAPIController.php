@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -161,7 +161,7 @@ class PositionAPIController extends Controller
         $studentIds = [];
         foreach($request->input('data') as $data)
         {
-            $positionStudentGroup = new PositionStudentGroup([
+            $positionStudentGroup = new Role([
                 'group_id' => $data['group_id'],
                 'student_id' => $data['student_id'],
             ]);

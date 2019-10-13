@@ -8,7 +8,7 @@ use App\Models\Account;
 use App\Models\Group;
 use App\Models\GroupTag;
 use App\Models\Position;
-use App\Models\PositionStudentGroup;
+use App\Models\Role;
 use App\Models\Student;
 use App\Rules\IsCommitteeYearRule;
 use Illuminate\Database\Eloquent\SoftDeletes;

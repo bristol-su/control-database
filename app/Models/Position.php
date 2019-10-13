@@ -39,9 +39,9 @@ class Position extends Model
         'description',
     ];
 
-    public function positionStudentGroups()
+    public function roles()
     {
-        return $this->hasMany('App\Models\PositionStudentGroup');
+        return $this->hasMany('App\Models\Roles');
     }
 
 }
