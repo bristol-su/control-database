@@ -39,7 +39,7 @@ class RoleAPIController extends Controller
         ]);
         $year = ($request->has('year')?$request->input('year'):config('app.committee_year'));
 
-        return Role::with(['group', 'position'])->where('committee_year', $year)->get();
+        return Role::with(['group', 'position'])->get();
     }
 
     /**
