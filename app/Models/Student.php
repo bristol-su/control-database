@@ -44,7 +44,7 @@ class Student extends Model
 
     public function roles()
     {
-        return $this->belongsToMany('App\Models\Role', 'user_role');
+        return $this->belongsToMany('App\Models\Role', 'user_role')->withPivot(['position_name', 'committee_year']);
     }
 
     public function groups()

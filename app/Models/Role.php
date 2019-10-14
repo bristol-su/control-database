@@ -55,7 +55,7 @@ class Role extends Model
 
     public function student()
     {
-        return $this->hasMany('App\Models\Student', 'user_role');
+        return $this->hasMany('App\Models\Student', 'user_role')->withPivot(['position_name', 'committee_year']);
     }
 
     public function group()
